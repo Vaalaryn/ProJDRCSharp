@@ -10,11 +10,28 @@ using System.Windows.Forms;
 
 namespace Jeu_de_role
 {
-    public partial class InfoPartie : Form
+    public partial class CreationPartie: Form
     {
-        public InfoPartie()
+        public CreationPartie()
         {
             InitializeComponent();
+        }
+
+        private void CreateGameBtn_Click(object sender, EventArgs e)
+        {
+            dgvDescScenar.DataSource = null;
+            dgvDescScenar.Refresh();
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreationPartie_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
