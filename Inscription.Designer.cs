@@ -43,7 +43,9 @@
             this.rechercheImgButton = new System.Windows.Forms.Button();
             this.rechercheImg = new System.DirectoryServices.DirectorySearcher();
             this.linkTxt = new System.Windows.Forms.TextBox();
+            this.testPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // mailTxt
@@ -183,11 +185,21 @@
             this.linkTxt.Size = new System.Drawing.Size(189, 22);
             this.linkTxt.TabIndex = 14;
             // 
+            // testPictureBox
+            // 
+            this.testPictureBox.Location = new System.Drawing.Point(53, 569);
+            this.testPictureBox.Name = "testPictureBox";
+            this.testPictureBox.Size = new System.Drawing.Size(341, 98);
+            this.testPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.testPictureBox.TabIndex = 15;
+            this.testPictureBox.TabStop = false;
+            // 
             // Inscription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 575);
+            this.ClientSize = new System.Drawing.Size(439, 679);
+            this.Controls.Add(this.testPictureBox);
             this.Controls.Add(this.linkTxt);
             this.Controls.Add(this.rechercheImgButton);
             this.Controls.Add(this.pictureBox);
@@ -205,6 +217,7 @@
             this.Name = "Inscription";
             this.Text = "Inscription";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.testPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,5 +240,6 @@
         private System.Windows.Forms.Button rechercheImgButton;
         private System.DirectoryServices.DirectorySearcher rechercheImg;
         private System.Windows.Forms.TextBox linkTxt;
+        private System.Windows.Forms.PictureBox testPictureBox;
     }
 }

@@ -52,6 +52,11 @@ namespace Jeu_de_role
                 {
                     AjoutBDD(mail, pseudo, mdp, ImageData);
                 }
+
+                MemoryStream ms = new MemoryStream(ImageData);
+                ms.Position = 0;
+                Image returnImage = Image.FromStream(ms);
+                testPictureBox.Image = returnImage;
             }
         }
 
