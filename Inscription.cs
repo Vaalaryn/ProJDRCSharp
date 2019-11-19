@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,8 @@ namespace Jeu_de_role
 {
     public partial class Inscription : Form
     {
+        public byte[] bytes;
+
         public Inscription()
         {
             InitializeComponent();
@@ -22,24 +25,34 @@ namespace Jeu_de_role
             return false;
         }
 
-        private bool AjoutBDD(string mail, string pseudo, string mdp, string confirmation, Image img)
+        private bool AjoutBDD(string mail, string pseudo, string mdp, Byte[] img)
         {
             return false;
         }
 
         private void confirmerButton_Click(object sender, EventArgs e)
         {
-            var mail = this.mailTxt.Text;
-            var pseudo = this.pseudoTxt.Text;
-            var mdp = this.mdpTxt.Text;
-            var confirm = this.confirmMdpTxt.Text;
-            var img = this.pictureBox.Image;
-
-            if (!Exist(mail, pseudo))
+            FileStream fs;
+            BinaryReader br;
+            if (mailTxt.Text.Length > 0 && pseudoTxt.Text.Length > 0 && mdpTxt.Text == confirmMdpTxt.Text)
             {
-                AjoutBDD(mail, pseudo, mdp, confirm, img);
-            }
+                var mail = this.mailTxt.Text;
+                var pseudo = this.pseudoTxt.Text;
+                var mdp = this.mdpTxt.Text;
 
+                string FileName = linkTxt.Text;
+                byte[] ImageData;
+                fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+                br = new BinaryReader(fs);
+                ImageData = br.ReadBytes((int)fs.Length);
+                br.Close();
+                fs.Close();
+
+                if (!Exist(mail, pseudo))
+                {
+                    AjoutBDD(mail, pseudo, mdp, ImageData);
+                }
+            }
         }
 
         private void rechercheImgButton_Click(object sender, EventArgs e)
@@ -51,7 +64,12 @@ namespace Jeu_de_role
             if (opf.ShowDialog() == DialogResult.OK)
             {
                 // get the image returned by OpenFileDialog 
+                linkTxt.Text = opf.FileName;
                 pictureBox.Image = Image.FromFile(opf.FileName);
+
+                this.linkTxt.Click += new System.EventHandler(this.rechercheImgButton_Click);
+                this.linkTxt.Enter += new System.EventHandler(this.rechercheImgButton_Click);
+
             }
         }
     }

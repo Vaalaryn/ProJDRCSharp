@@ -42,6 +42,7 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.rechercheImgButton = new System.Windows.Forms.Button();
             this.rechercheImg = new System.DirectoryServices.DirectorySearcher();
+            this.linkTxt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +67,7 @@
             this.mdpTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mdpTxt.Location = new System.Drawing.Point(12, 263);
             this.mdpTxt.Name = "mdpTxt";
+            this.mdpTxt.PasswordChar = '*';
             this.mdpTxt.Size = new System.Drawing.Size(392, 30);
             this.mdpTxt.TabIndex = 2;
             // 
@@ -74,6 +76,7 @@
             this.confirmMdpTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmMdpTxt.Location = new System.Drawing.Point(12, 341);
             this.confirmMdpTxt.Name = "confirmMdpTxt";
+            this.confirmMdpTxt.PasswordChar = '*';
             this.confirmMdpTxt.Size = new System.Drawing.Size(392, 30);
             this.confirmMdpTxt.TabIndex = 3;
             // 
@@ -121,7 +124,7 @@
             // 
             this.avatarLabel.AutoSize = true;
             this.avatarLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.avatarLabel.Location = new System.Drawing.Point(7, 410);
+            this.avatarLabel.Location = new System.Drawing.Point(7, 418);
             this.avatarLabel.Name = "avatarLabel";
             this.avatarLabel.Size = new System.Drawing.Size(85, 25);
             this.avatarLabel.TabIndex = 9;
@@ -130,7 +133,7 @@
             // confirmerButton
             // 
             this.confirmerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmerButton.Location = new System.Drawing.Point(121, 486);
+            this.confirmerButton.Location = new System.Drawing.Point(121, 522);
             this.confirmerButton.Name = "confirmerButton";
             this.confirmerButton.Size = new System.Drawing.Size(166, 41);
             this.confirmerButton.TabIndex = 10;
@@ -150,7 +153,7 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(98, 393);
+            this.pictureBox.Location = new System.Drawing.Point(304, 391);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(100, 74);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -159,11 +162,11 @@
             // 
             // rechercheImgButton
             // 
-            this.rechercheImgButton.Location = new System.Drawing.Point(217, 409);
+            this.rechercheImgButton.Location = new System.Drawing.Point(98, 457);
             this.rechercheImgButton.Name = "rechercheImgButton";
             this.rechercheImgButton.Size = new System.Drawing.Size(110, 32);
             this.rechercheImgButton.TabIndex = 13;
-            this.rechercheImgButton.Text = "Browse";
+            this.rechercheImgButton.Text = "Parcourir";
             this.rechercheImgButton.UseVisualStyleBackColor = true;
             this.rechercheImgButton.Click += new System.EventHandler(this.rechercheImgButton_Click);
             // 
@@ -173,11 +176,19 @@
             this.rechercheImg.ServerPageTimeLimit = System.TimeSpan.Parse("-00:00:01");
             this.rechercheImg.ServerTimeLimit = System.TimeSpan.Parse("-00:00:01");
             // 
+            // linkTxt
+            // 
+            this.linkTxt.Location = new System.Drawing.Point(98, 418);
+            this.linkTxt.Name = "linkTxt";
+            this.linkTxt.Size = new System.Drawing.Size(189, 22);
+            this.linkTxt.TabIndex = 14;
+            // 
             // Inscription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 539);
+            this.ClientSize = new System.Drawing.Size(439, 575);
+            this.Controls.Add(this.linkTxt);
             this.Controls.Add(this.rechercheImgButton);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.inscriptionLabel);
@@ -215,5 +226,6 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Button rechercheImgButton;
         private System.DirectoryServices.DirectorySearcher rechercheImg;
+        private System.Windows.Forms.TextBox linkTxt;
     }
 }

@@ -16,7 +16,7 @@ namespace Jeu_de_role
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Connexion());
+            Application.Run(new Inscription());
         }
     }
 }
