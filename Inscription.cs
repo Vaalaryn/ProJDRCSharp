@@ -20,6 +20,26 @@ namespace Jeu_de_role
             InitializeComponent();
         }
 
+        private Image BytetoImage(byte[] ImageData)
+        {
+            MemoryStream ms = new MemoryStream(ImageData);
+            ms.Position = 0;
+            return Image.FromStream(ms);
+        }
+
+        private Byte[] ImagetoByte(string FileName)
+        {
+            FileStream fs;
+            BinaryReader br;
+            byte[] ImageData;
+            fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
+            br = new BinaryReader(fs);
+            ImageData = br.ReadBytes((int)fs.Length);
+            br.Close();
+            fs.Close();
+            return ImageData;
+        }
+
         private bool Exist(string mail, string pseudo)
         {
             return false;
@@ -32,31 +52,21 @@ namespace Jeu_de_role
 
         private void confirmerButton_Click(object sender, EventArgs e)
         {
-            FileStream fs;
-            BinaryReader br;
             if (mailTxt.Text.Length > 0 && pseudoTxt.Text.Length > 0 && mdpTxt.Text == confirmMdpTxt.Text)
             {
                 var mail = this.mailTxt.Text;
                 var pseudo = this.pseudoTxt.Text;
                 var mdp = this.mdpTxt.Text;
 
-                string FileName = linkTxt.Text;
                 byte[] ImageData;
-                fs = new FileStream(FileName, FileMode.Open, FileAccess.Read);
-                br = new BinaryReader(fs);
-                ImageData = br.ReadBytes((int)fs.Length);
-                br.Close();
-                fs.Close();
+                ImageData = ImagetoByte(linkTxt.Text);
 
                 if (!Exist(mail, pseudo))
                 {
                     AjoutBDD(mail, pseudo, mdp, ImageData);
                 }
 
-                MemoryStream ms = new MemoryStream(ImageData);
-                ms.Position = 0;
-                Image returnImage = Image.FromStream(ms);
-                testPictureBox.Image = returnImage;
+                testPictureBox.Image = BytetoImage(ImageData);
             }
         }
 
