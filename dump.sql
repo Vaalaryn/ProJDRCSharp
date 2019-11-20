@@ -116,13 +116,15 @@ CREATE TABLE IF NOT EXISTS `t_utilisateur` (
   `mail` varchar(50) NOT NULL,
   `pseudo` varchar(50) NOT NULL,
   `mdp` varchar(50) NOT NULL,
+  `avatar` longblob,
   PRIMARY KEY (`id_util`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
--- Listage des données de la table projdr.t_utilisateur : ~1 rows (environ)
+-- Listage des données de la table projdr.t_utilisateur : ~2 rows (environ)
 /*!40000 ALTER TABLE `t_utilisateur` DISABLE KEYS */;
-INSERT INTO `t_utilisateur` (`id_util`, `mail`, `pseudo`, `mdp`) VALUES
-	(1, 'enzo.caron@mail.fr', 'Nzo', 'azerty');
+INSERT INTO `t_utilisateur` (`id_util`, `mail`, `pseudo`, `mdp`, `avatar`) VALUES
+	(1, 'enzo.caron@mail.fr', 'Nzo', 'azerty', NULL),
+	(2, 'machin@machin.com', 'brice', '1234', NULL);
 /*!40000 ALTER TABLE `t_utilisateur` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
