@@ -62,6 +62,7 @@
             this.userInfoBtn.TabIndex = 2;
             this.userInfoBtn.Text = "Information Joueur";
             this.userInfoBtn.UseVisualStyleBackColor = true;
+            this.userInfoBtn.Click += new System.EventHandler(this.userInfoBtn_Click);
             // 
             // gameListView
             // 
