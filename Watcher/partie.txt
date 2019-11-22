@@ -1,0 +1,1 @@
+[{"ID_PERSO":1,"ID_CLASSE":1,"ID_JOUEUR":1,"NOM":"Gandalf","PRENOM":"jsépu","VIVANT":true,"DESCRIPTION":"Vous ne passerez pas","BLOCNOTE":null,"VIE":50,"MANA":50,"EXPERIENCE":0,"NIVEAU":1},{"ID_PERSO":2,"ID_CLASSE":1,"ID_JOUEUR":2,"NOM":"Frodon","PRENOM":"machin","VIVANT":true,"DESCRIPTION":"Jsuis paumé","BLOCNOTE":null,"VIE":10,"MANA":10,"EXPERIENCE":0,"NIVEAU":1}]
