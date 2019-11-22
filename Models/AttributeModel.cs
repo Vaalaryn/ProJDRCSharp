@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jeu_de_role.Model
+namespace Jeu_de_role.Models
 {
     public class AttributeModel
     {

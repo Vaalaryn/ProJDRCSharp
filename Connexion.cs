@@ -1,3 +1,4 @@
+using Jeu_de_role.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,12 +18,16 @@ namespace Jeu_de_role
 {
     public partial class Connexion : Form
     {
-        private string server = Properties.Settings.Default.SERVER.ToString().Replace("\"", "");
+        private string server = Properties.Settings.Default.SERVER.ToString();
+        private Inscription inscription = new Inscription();
 
         public Connexion()
         {
             InitializeComponent();
         }
+
+
+
 
         /// <summary>
         /// Vérifie que le couple login/mot de passe est correct en fonction de la réponse API.
@@ -29,12 +35,24 @@ namespace Jeu_de_role
         /// <param name="pseudo">Identifiant</param>
         /// <param name="pass">Mot de passe</param>
         /// <returns></returns>
-        public bool AskConnexion(string pseudo, string pass)
+        public async Task<bool> AskConnexion(string pseudo, string pass)
         {
             try
             {
+                 string task = await Task.Run<string>(() =>
+                {
+                    string url = server + "/Utilisateur/Connexion";
+
+                    Task<string> result = Requetes.GetInfo(url, new List<AttributeModel> {
+                        new AttributeModel("pseudo",pseudo),
+                        new AttributeModel("pass",pass)
+                    });
+                    return result;
+                });
+
+
                 /* On Interroge l'api, et on définit si la connexion est réussie ou non. */
-                string jsonString = new WebClient().DownloadString(server + "/Utilisateur/Connexion?pseudo=" + pseudo + "&pass=" + pass).Replace("[", "").Replace("]", "");
+                string jsonString = task;
                 if (jsonString == "true")
                     return true;
                 else
@@ -52,13 +70,14 @@ namespace Jeu_de_role
         {
             /*TODO : Associer la fenêtre menu et l'ouvrir */
 
-
+            Task.WaitAll();
             this.Close(); //On ferme la fenêtre de connexion.
         }
 
         public void OpenInscription()
         {
             /*TODO : Ouvrir la fenêtre d'inscription en modal */
+            inscription.ShowDialog();
         }
 
         public void TryValidation()
@@ -67,15 +86,24 @@ namespace Jeu_de_role
             string pass = passwordTxt.Text;
 
             //On vérifie le couple login/mot de passe
-            if (AskConnexion(login, pass))
+            Task.Run(() =>
             {
-                OpenMenu();
-                MessageBox.Show("Vous êtes connecté.");
-            }
-            else
-            {
-                MessageBox.Show("Pseudo ou mot de passe incorrect.");
-            }
+                Task<bool> result = AskConnexion(login, pass);
+
+                if (result.Result)
+                {
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+                        this.OpenMenu();
+                    }));
+                    MessageBox.Show("Vous êtes connecté.");
+                }
+                else
+                {
+                    MessageBox.Show("Pseudo ou mot de passe incorrect.");
+                }
+            });
+            
         }
 
         /// <summary>
