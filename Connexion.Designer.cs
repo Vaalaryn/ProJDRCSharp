@@ -1,4 +1,4 @@
-﻿namespace Jeu_de_role
+namespace Jeu_de_role
 {
     partial class Connexion
     {

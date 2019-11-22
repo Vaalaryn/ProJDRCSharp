@@ -1,11 +1,14 @@
-﻿using Newtonsoft.Json.Linq;
+using Jeu_de_role.Model;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +17,8 @@ namespace Jeu_de_role
 {
     public partial class Connexion : Form
     {
+        private string server = Properties.Settings.Default.SERVER.ToString().Replace("\"", "");
+
         public Connexion()
         {
             InitializeComponent();
@@ -30,7 +35,7 @@ namespace Jeu_de_role
             try
             {
                 /* On Interroge l'api, et on définit si la connexion est réussie ou non. */
-                string jsonString = new WebClient().DownloadString("http://localhost/api/api/values/Connected?pseudo=" + pseudo + "&pass=" + pass).Replace("[", "").Replace("]", "");
+                string jsonString = new WebClient().DownloadString(server + "/Utilisateur/Connexion?pseudo=" + pseudo + "&pass=" + pass).Replace("[", "").Replace("]", "");
                 if (jsonString == "true")
                     return true;
                 else
