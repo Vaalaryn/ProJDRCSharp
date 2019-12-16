@@ -88,7 +88,7 @@
             // Watcher
             // 
             this.Watcher.EnableRaisingEvents = true;
-            this.Watcher.Path = "\\\\10.176.131.106\\Watcher2";
+            this.Watcher.Path = "\\\\10.176.131.132\\Users\\Elise\\Desktop\\ProJDRCSharp\\Watcher";
             this.Watcher.SynchronizingObject = this;
             this.Watcher.Changed += new System.IO.FileSystemEventHandler(this.Watcher_Changed);
             // 
