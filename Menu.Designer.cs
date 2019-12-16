@@ -33,6 +33,8 @@
             this.userInfoBtn = new System.Windows.Forms.Button();
             this.gameListView = new System.Windows.Forms.ListView();
             this.searchGameBtn = new System.Windows.Forms.Button();
+            this.Watcher = new System.IO.FileSystemWatcher();
+            ((System.ComponentModel.ISupportInitialize)(this.Watcher)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIdGame
@@ -83,6 +85,13 @@
             this.searchGameBtn.Text = "R";
             this.searchGameBtn.UseVisualStyleBackColor = true;
             // 
+            // Watcher
+            // 
+            this.Watcher.EnableRaisingEvents = true;
+            this.Watcher.Path = "\\\\10.176.131.106\\Watcher";
+            this.Watcher.SynchronizingObject = this;
+            this.Watcher.Changed += new System.IO.FileSystemEventHandler(this.Watcher_Changed);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,6 +104,7 @@
             this.Controls.Add(this.txtIdGame);
             this.Name = "Menu";
             this.Text = "Menu";
+            ((System.ComponentModel.ISupportInitialize)(this.Watcher)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,5 +117,6 @@
         private System.Windows.Forms.Button userInfoBtn;
         private System.Windows.Forms.ListView gameListView;
         private System.Windows.Forms.Button searchGameBtn;
+        private System.IO.FileSystemWatcher Watcher;
     }
 }

@@ -123,5 +123,10 @@ namespace Jeu_de_role
         {
             OpenInscription();
         }
+
+        private void Watcher_Changed(object sender, System.IO.FileSystemEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(e.FullPath + " Changed");
+        }
     }
 }

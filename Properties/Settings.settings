@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="SERVER" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://10.176.132.160:8080/api</Value>
+      <Value Profile="(Default)">http://10.176.131.106:8080/api</Value>
     </Setting>
   </Settings>
 </SettingsFile>
