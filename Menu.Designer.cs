@@ -51,9 +51,9 @@
             // CreateGameBtn
             // 
             this.CreateGameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateGameBtn.Location = new System.Drawing.Point(32, 53);
+            this.CreateGameBtn.Location = new System.Drawing.Point(12, 53);
             this.CreateGameBtn.Name = "CreateGameBtn";
-            this.CreateGameBtn.Size = new System.Drawing.Size(160, 50);
+            this.CreateGameBtn.Size = new System.Drawing.Size(262, 50);
             this.CreateGameBtn.TabIndex = 1;
             this.CreateGameBtn.Text = "Créer une partie";
             this.CreateGameBtn.UseVisualStyleBackColor = true;
@@ -64,7 +64,7 @@
             this.userInfoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userInfoBtn.Location = new System.Drawing.Point(12, 388);
             this.userInfoBtn.Name = "userInfoBtn";
-            this.userInfoBtn.Size = new System.Drawing.Size(205, 50);
+            this.userInfoBtn.Size = new System.Drawing.Size(262, 50);
             this.userInfoBtn.TabIndex = 2;
             this.userInfoBtn.Text = "Information Joueur";
             this.userInfoBtn.UseVisualStyleBackColor = true;
@@ -94,7 +94,7 @@
             this.dgvDescription});
             this.dgvParties.Location = new System.Drawing.Point(12, 109);
             this.dgvParties.Name = "dgvParties";
-            this.dgvParties.Size = new System.Drawing.Size(240, 273);
+            this.dgvParties.Size = new System.Drawing.Size(262, 273);
             this.dgvParties.TabIndex = 5;
             // 
             // dgvTitre
