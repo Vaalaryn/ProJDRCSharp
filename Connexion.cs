@@ -2,15 +2,6 @@ using Jeu_de_role.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -43,7 +34,7 @@ namespace Jeu_de_role
                 {
                     string url = server + "/Utilisateur/Connexion";
 
-                    Task<string> result = Requetes.GetInfo(url, new List<AttributeModel> {
+                    Task<string> result = Requetes.PostInfo(url, new List<AttributeModel> {
                         new AttributeModel("pseudo",pseudo),
                         new AttributeModel("pass",pass)
                     });
@@ -68,15 +59,16 @@ namespace Jeu_de_role
         /// </summary>
         public void OpenMenu()
         {
-            /*TODO : Associer la fenêtre menu et l'ouvrir */
+            Menu menu = new Menu();
+            menu.Show();
 
-            Task.WaitAll();
-            this.Close(); //On ferme la fenêtre de connexion.
+            this.Hide();
+            //On ferme la fenêtre de connexion.
+            
         }
 
         public void OpenInscription()
         {
-            /*TODO : Ouvrir la fenêtre d'inscription en modal */
             inscription.ShowDialog();
         }
 
@@ -96,7 +88,6 @@ namespace Jeu_de_role
                     {
                         this.OpenMenu();
                     }));
-                    MessageBox.Show("Vous êtes connecté.");
                 }
                 else
                 {

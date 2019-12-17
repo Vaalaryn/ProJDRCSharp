@@ -10,7 +10,13 @@ namespace Jeu_de_role
     public static class Requetes
     {
         /* Partie HTTP */
-        public static async Task<string> GetInfo(string url, List<AttributeModel> attributes = null)
+        /// <summary>
+        /// Effectue un HttpPost
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="attributes"></param>
+        /// <returns></returns>
+        public static async Task<string> PostInfo(string url, List<AttributeModel> attributes = null)
         {
             if (attributes.Count != 0 && attributes != null)
             {
@@ -39,6 +45,32 @@ namespace Jeu_de_role
             System.Diagnostics.Debug.WriteLine(responseString);
 
             return responseString;
+        }
+
+
+        public static async Task<string> GetInfo(string url)
+        {
+
+            using (HttpClient client = new HttpClient())
+            {
+                // autre possibilité
+                //client.BaseAddress = new Uri(page);
+
+                // on peut compléter le header
+                //client.DefaultRequestHeaders.Add("X-TEST", "123");
+
+                // la requête
+                using (HttpResponseMessage response = await client.GetAsync(url))
+                {
+
+                    using (HttpContent content = response.Content)
+                    {
+                        // récupère la réponse, il ne resterai plus qu'à désérialiser
+                        string result = await content.ReadAsStringAsync();
+                        return result;
+                    }
+                }
+            }
         }
     }
 }
