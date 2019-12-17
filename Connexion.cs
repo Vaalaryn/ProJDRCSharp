@@ -12,6 +12,9 @@ namespace Jeu_de_role
         private string server = Properties.Settings.Default.SERVER.ToString();
         private Inscription inscription = new Inscription();
 
+        //Utilisateur
+        private int IdUtilisateur = 0;
+
         public Connexion()
         {
             InitializeComponent();
@@ -30,26 +33,10 @@ namespace Jeu_de_role
         {
             try
             {
-                 string task = await Task.Run<string>(() =>
-                {
-                    string url = server + "/Utilisateur/Connexion";
-
-                    Task<string> result = Requetes.PostInfo(url, new List<AttributeModel> {
-                        new AttributeModel("pseudo",pseudo),
-                        new AttributeModel("pass",pass)
-                    });
-                    return result;
-                });
-
-
-                /* On Interroge l'api, et on définit si la connexion est réussie ou non. */
-                string jsonString = task;
-                if (jsonString == "true")
-                    return true;
-                else
-                    return false;
+                string url = server + "/Utilisateur/Connexion?pseudo=" + pseudo + "&pass=" + pass;
+                return await Requetes.GetInfo(url) == "true"? true : false;
             }
-            catch //Erreur -> on retourne faux
+            catch
             {
                 return false;
             }
@@ -59,13 +46,40 @@ namespace Jeu_de_role
         /// </summary>
         public void OpenMenu()
         {
-            Menu menu = new Menu();
-            menu.Show();
+            if(IdUtilisateur != 0)
+            {
+                Menu menu = new Menu(IdUtilisateur);
+                menu.Show();
 
-            this.Hide();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Un problème de connexion est survenu.");
+            }
             //On ferme la fenêtre de connexion.
             
         }
+
+        public async Task<int> GetIdUtilisateur(string pseudo)
+        {
+            int IdUtilisateur = 0;
+            try
+            {
+                string url = server + "/Utilisateur/GetByPseudo?pseudo=" + pseudo;
+                string result = await Requetes.GetInfo(url);
+
+                JObject json = JObject.Parse(result);
+                IdUtilisateur = Convert.ToInt32(json["ID_UTIL"]);
+
+                return IdUtilisateur;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+
 
         public void OpenInscription()
         {
@@ -81,9 +95,10 @@ namespace Jeu_de_role
             Task.Run(() =>
             {
                 Task<bool> result = AskConnexion(login, pass);
-
+                Task<int> utilisateur = GetIdUtilisateur(login);
                 if (result.Result)
                 {
+                    IdUtilisateur = utilisateur.Result;
                     this.Invoke(new MethodInvoker(delegate
                     {
                         this.OpenMenu();
@@ -124,9 +139,9 @@ namespace Jeu_de_role
             OpenInscription();
         }
 
-        private void Watcher_Changed(object sender, System.IO.FileSystemEventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine(e.FullPath + " Changed");
-        }
+        //private void Watcher_Changed(object sender, System.IO.FileSystemEventArgs e)
+        //{
+        //    System.Diagnostics.Debug.WriteLine(e.FullPath + " Changed");
+        //}
     }
 }

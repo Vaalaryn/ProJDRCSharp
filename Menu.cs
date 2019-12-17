@@ -18,14 +18,51 @@ namespace Jeu_de_role
         //Adresse du serveur
         private string server = Properties.Settings.Default.SERVER.ToString();
 
+        //Joueur
+        private int IdUtilisateur = 0;
+
         private Profil profil = new Profil();
-       
-        public Menu()
+
+        public Menu(int idUtilisateur)
         {
             InitializeComponent();
+            IdUtilisateur = idUtilisateur;
+            RefreshPartieList();
         }
 
 
+   
+
+
+
+        /// <summary>
+        /// Rafraichit les parties en cours de l'utilisateur.
+        /// </summary>
+        public void RefreshPartieList()
+        {
+            dgvParties.Rows.Clear();
+            Task.Run(() =>
+            {
+                Task<List<PartieModel>> result = Requetes.GetParties(IdUtilisateur);
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    foreach(PartieModel p in result.Result)
+                    {
+                        AddRowToDgv(p.TITRE, p.DESCRIPTION_PARTIE);
+                    }
+                    
+                }));
+            });
+
+        }
+
+        private void AddRowToDgv(string titre,string description)
+        {
+            DataGridViewRow row = (DataGridViewRow)dgvParties.Rows[0].Clone();
+            row.Cells[0].Value = titre;
+            row.Cells[1].Value = description;
+            dgvParties.Rows.Add(row);
+        }
 
 
         private void userInfoBtn_Click(object sender, EventArgs e)
@@ -47,6 +84,13 @@ namespace Jeu_de_role
                     MessageBox.Show(line);
                 }
             }
+        }
+
+        private void CreateGameBtn_Click(object sender, EventArgs e)
+        {
+            AjoutPartie ajoutPartie = new AjoutPartie(IdUtilisateur);
+            ajoutPartie.ShowDialog();
+            RefreshPartieList();
         }
     }
 }
