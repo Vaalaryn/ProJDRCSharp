@@ -5,11 +5,16 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Jeu_de_role.Models;
+using Newtonsoft.Json.Linq;
+
 namespace Jeu_de_role
 {
     public static class Requetes
     {
-        /* Partie HTTP */
+        static string server = Properties.Settings.Default.SERVER.ToString();
+
+        /* Helpers HTTP GET et POST */
+
         /// <summary>
         /// Effectue un HttpPost
         /// </summary>
@@ -72,5 +77,40 @@ namespace Jeu_de_role
                 }
             }
         }
+
+
+        //Requêtes vers l'api
+        /// <summary>
+        /// Récupère les parties de l'utilisateur.
+        /// </summary>
+        /// <param name="idUtilisateur"></param>
+        /// <returns></returns>
+        public static async Task<List<PartieModel>> GetParties(int idUtilisateur)
+        {
+            List<PartieModel> listResult = new List<PartieModel>();
+
+            string url = server + "/Partie/PartiesEnCours?idUtilisateur=" + idUtilisateur;
+            string result = await GetInfo(url);
+            JArray json = JArray.Parse(result);
+            foreach(JObject jo in json)
+            {
+                listResult.Add(new PartieModel
+                {
+                    ID_PARTIE = jo["ID_PARTIE"].ToString(),
+                    DESCRIPTION_PARTIE = jo["DESCRIPTION_PARTIE"].ToString(),
+                    TITRE = jo["TITRE"].ToString()
+                });
+            }
+
+            return listResult;
+
+        }
+
+
+
+
+
+
+
     }
 }
