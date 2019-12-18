@@ -44,7 +44,6 @@
             this.eventTxtBox.Name = "eventTxtBox";
             this.eventTxtBox.Size = new System.Drawing.Size(396, 143);
             this.eventTxtBox.TabIndex = 0;
-            this.eventTxtBox.TextChanged += new System.EventHandler(this.eventTxtBox_TextChanged);
             // 
             // lootRbtn
             // 
@@ -127,7 +126,6 @@
             this.Controls.Add(this.eventTxtBox);
             this.Name = "evenement";
             this.Text = "eventcs";
-            this.Load += new System.EventHandler(this.evenement_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jListDtg = new System.Windows.Forms.DataGridView();
             this.flpActionButton = new System.Windows.Forms.FlowLayoutPanel();
             this.déBtn = new System.Windows.Forms.Button();
@@ -42,18 +44,49 @@
             this.logLbl = new System.Windows.Forms.Label();
             this.blocNoteLbl = new System.Windows.Forms.Label();
             this.logTxtbx = new System.Windows.Forms.TextBox();
+            this.WatcherPartie = new System.IO.FileSystemWatcher();
+            this.WatcherLogs = new System.IO.FileSystemWatcher();
+            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.jListDtg)).BeginInit();
             this.flpActionButton.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.WatcherPartie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WatcherLogs)).BeginInit();
             this.SuspendLayout();
             // 
             // jListDtg
             // 
+            this.jListDtg.AllowUserToResizeColumns = false;
+            this.jListDtg.AllowUserToResizeRows = false;
+            this.jListDtg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.jListDtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jListDtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.jListDtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.jListDtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nom,
+            this.prenom,
+            this.ID});
             this.jListDtg.Location = new System.Drawing.Point(12, 36);
+            this.jListDtg.MultiSelect = false;
             this.jListDtg.Name = "jListDtg";
+            this.jListDtg.ReadOnly = true;
+            this.jListDtg.RowHeadersVisible = false;
+            this.jListDtg.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jListDtg.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.jListDtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jListDtg.Size = new System.Drawing.Size(374, 146);
             this.jListDtg.TabIndex = 0;
-            this.jListDtg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.jListDtg_CellContentClick);
             // 
             // flpActionButton
             // 
@@ -157,10 +190,9 @@
             this.listeJLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listeJLbl.Location = new System.Drawing.Point(12, 9);
             this.listeJLbl.Name = "listeJLbl";
-            this.listeJLbl.Size = new System.Drawing.Size(156, 20);
+            this.listeJLbl.Size = new System.Drawing.Size(201, 20);
             this.listeJLbl.TabIndex = 4;
-            this.listeJLbl.Text = "Liste des joueurs :";
-            this.listeJLbl.Click += new System.EventHandler(this.listeJLbl_Click);
+            this.listeJLbl.Text = "Liste des personnages :";
             // 
             // logLbl
             // 
@@ -189,7 +221,39 @@
             this.logTxtbx.Name = "logTxtbx";
             this.logTxtbx.Size = new System.Drawing.Size(370, 286);
             this.logTxtbx.TabIndex = 7;
-            this.logTxtbx.TextChanged += new System.EventHandler(this.logTxtbx_TextChanged);
+            // 
+            // WatcherPartie
+            // 
+            this.WatcherPartie.EnableRaisingEvents = true;
+            this.WatcherPartie.Path = "\\\\localhost\\Watcher2\\Parties";
+            this.WatcherPartie.SynchronizingObject = this;
+            this.WatcherPartie.Changed += new System.IO.FileSystemEventHandler(this.WatcherPartie_Changed);
+            // 
+            // WatcherLogs
+            // 
+            this.WatcherLogs.EnableRaisingEvents = true;
+            this.WatcherLogs.Path = "\\\\localhost\\Watcher2\\\\Logs";
+            this.WatcherLogs.SynchronizingObject = this;
+            this.WatcherLogs.Changed += new System.IO.FileSystemEventHandler(this.WatcherLogs_Changed);
+            // 
+            // nom
+            // 
+            this.nom.HeaderText = "Nom";
+            this.nom.Name = "nom";
+            this.nom.ReadOnly = true;
+            // 
+            // prenom
+            // 
+            this.prenom.HeaderText = "Prenom";
+            this.prenom.Name = "prenom";
+            this.prenom.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // PartieMJ
             // 
@@ -205,9 +269,10 @@
             this.Controls.Add(this.jListDtg);
             this.Name = "PartieMJ";
             this.Text = "PartieMJ";
-            this.Load += new System.EventHandler(this.PartieMJ_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jListDtg)).EndInit();
             this.flpActionButton.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.WatcherPartie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WatcherLogs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +294,10 @@
         private System.Windows.Forms.Label logLbl;
         private System.Windows.Forms.Label blocNoteLbl;
         private System.Windows.Forms.TextBox logTxtbx;
+        private System.IO.FileSystemWatcher WatcherPartie;
+        private System.IO.FileSystemWatcher WatcherLogs;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
     }
 }

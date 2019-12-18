@@ -12,18 +12,26 @@ namespace Jeu_de_role
 {
     public partial class evenement : Form
     {
-        public static string eventText;
         private PartieMJ fenetre;
+
         public evenement(PartieMJ pmj)
         {
             InitializeComponent();
             fenetre = pmj;
         }
-        public string EventText
-        {
-            get { return eventText; }
-            set { eventText = value; }
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+        //Evénements
         #region Event
         private void winRbtn_CheckedChanged(object sender, EventArgs e)
         {
@@ -44,22 +52,12 @@ namespace Jeu_de_role
         {
             eventTxtBox.ForeColor = Color.Blue;
         }
-        private void eventTxtBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         
         private void validEventBtn_Click(object sender, EventArgs e)
         {
-            EventText = eventTxtBox.Text;
-            fenetre.ecrireLog(EventText);
+
             this.Close();
         }
         #endregion
-
-        private void evenement_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
