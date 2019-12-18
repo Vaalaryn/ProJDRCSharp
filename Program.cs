@@ -17,7 +17,7 @@ namespace Jeu_de_role
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FichePerso());
+            Application.Run(new Connexion());
         }
 
         
