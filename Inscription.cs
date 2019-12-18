@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jeu_de_role.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace Jeu_de_role
 {
     public partial class Inscription : Form
     {
+        private string server = Properties.Settings.Default.SERVER.ToString();
+
         public byte[] bytes;
 
         public Inscription()
@@ -45,9 +48,26 @@ namespace Jeu_de_role
             return false;
         }
 
-        private bool AjoutBDD(string mail, string pseudo, string mdp, Byte[] img)
+        private async Task<bool> AjoutBDD(string mail, string pseudo, string mdp, Byte[] img)
         {
-            return false;
+            try
+            {
+                string url = server + "/Utilisateur/Inscription";
+                await Requetes.GetInfo(url, new List<AttributeModel> {
+                new AttributeModel("mail",mail),
+                new AttributeModel("pseudo",pseudo),
+                new AttributeModel("mdp",mdp),
+                new AttributeModel("mdpConfirm", mdp),
+                new AttributeModel("avatar",img)
+            });
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
         }
 
         private void confirmerButton_Click(object sender, EventArgs e)
@@ -63,7 +83,12 @@ namespace Jeu_de_role
 
                 if (!Exist(mail, pseudo))
                 {
-                    AjoutBDD(mail, pseudo, mdp, ImageData);
+                    Task.Run<bool>(() =>
+                    {
+                        Task<bool> result = AjoutBDD(mail, pseudo, mdp, ImageData);
+                        return result.Result;
+                    });
+                    
                 }
 
                 testPictureBox.Image = BytetoImage(ImageData);

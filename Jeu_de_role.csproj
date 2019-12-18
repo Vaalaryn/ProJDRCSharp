@@ -70,6 +70,12 @@
     <Compile Include="FichePerso.Designer.cs">
       <DependentUpon>FichePerso.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreationPerso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreationPerso.Designer.cs">
+      <DependentUpon>CreationPerso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AttributeModel.cs" />
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FichePerso.resx">
       <DependentUpon>FichePerso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreationPerso.resx">
+      <DependentUpon>CreationPerso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inscription.resx">
       <DependentUpon>Inscription.cs</DependentUpon>
