@@ -26,30 +26,42 @@ namespace Jeu_de_role
             InitializeComponent();
             using (WebClient wc = new WebClient())
             {
-                json = wc.DownloadString("file://10.176.131.132/Users/Elise/Documents/Watcher/Parties/Z3R5WL9pYuC0lHIk.json");
+                json = wc.DownloadString("http://10.176.131.106:8080/api/Personnage/GetById?idPerso=19");
                 //const string V = "{ 'ID_PARTIE':'mgD6nsd5IN85IlRO','TITRE':'Test des fichier','DESCRIPTION_PARTIE':'Ok','image':[],'joueur':[{'utilisateur':{'ID_UTIL':1,'MAIL':'tata','PSEUDO':'toto','AVATAR':'MTIzNA=='},'personnage':[],'ID_JOUEUR':15,'ID_UTIL':1,'ID_PARTIE':'mgD6nsd5IN85IlRO','IS_MJ':true}]}";
                 //json = V;
 
             }
-            
+            label1.Text = TraitementPersonnage.getData(json, 0);
+            label2.Text = TraitementPersonnage.getData(json, 1);
+            label3.Text = TraitementPersonnage.getData(json, 2);
+            label4.Text = TraitementPersonnage.getData(json, 3);
+            textBox1.Text = TraitementPersonnage.getData(json, 4);
+            label6.Text = TraitementPersonnage.getData(json, 5);
+            label7.Text = TraitementPersonnage.getData(json, 6);
+            label8.Text = TraitementPersonnage.getData(json, 7);
+            label9.Text = TraitementPersonnage.getData(json, 8);
+            label10.Text = TraitementPersonnage.getData(json, 9);
+            label11.Text = TraitementPersonnage.getData(json, 10);
+            label12.Text = TraitementPersonnage.getData(json, 11);
+            label13.Text = TraitementPersonnage.getData(json, 12);
+            label14.Text = TraitementPersonnage.getData(json, 13);
+            label15.Text = TraitementPersonnage.getData(json, 14);
+            label16.Text = TraitementPersonnage.getData(json, 15);
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
-
-            //JObject myjson = JObject.Parse(json);
-
-            //DataSet data = JsonConvert.DeserializeObject<DataSet>(json);
-            //System.Diagnostics.Debug.WriteLine(json);
-            //System.Diagnostics.Debug.WriteLine('yolooooo');
-            dgv.DataSource = TraitementPersonnage.ListeReader(json);
-            //var jsonLinq = JArray.Parse(json);
-            
-
         }
 
-       
+        private void label10_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
