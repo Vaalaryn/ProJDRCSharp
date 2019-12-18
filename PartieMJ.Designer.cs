@@ -31,20 +31,19 @@
             this.jListDtg = new System.Windows.Forms.DataGridView();
             this.flpActionButton = new System.Windows.Forms.FlowLayoutPanel();
             this.déBtn = new System.Windows.Forms.Button();
-            this.logDtg = new System.Windows.Forms.DataGridView();
-            this.blocNotetxtbx = new System.Windows.Forms.TextBox();
             this.eventBtn = new System.Windows.Forms.Button();
             this.modifJBtn = new System.Windows.Forms.Button();
             this.modifInventBtn = new System.Windows.Forms.Button();
             this.sendPicBtn = new System.Windows.Forms.Button();
             this.changeMJBtn = new System.Windows.Forms.Button();
             this.infoPBtn = new System.Windows.Forms.Button();
+            this.blocNotetxtbx = new System.Windows.Forms.TextBox();
             this.listeJLbl = new System.Windows.Forms.Label();
             this.logLbl = new System.Windows.Forms.Label();
             this.blocNoteLbl = new System.Windows.Forms.Label();
+            this.logTxtbx = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.jListDtg)).BeginInit();
             this.flpActionButton.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logDtg)).BeginInit();
             this.SuspendLayout();
             // 
             // jListDtg
@@ -80,22 +79,6 @@
             this.déBtn.Text = "Lancer un dé";
             this.déBtn.UseVisualStyleBackColor = true;
             this.déBtn.Click += new System.EventHandler(this.déBtn_Click);
-            // 
-            // logDtg
-            // 
-            this.logDtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.logDtg.Location = new System.Drawing.Point(12, 211);
-            this.logDtg.Name = "logDtg";
-            this.logDtg.Size = new System.Drawing.Size(374, 285);
-            this.logDtg.TabIndex = 2;
-            // 
-            // blocNotetxtbx
-            // 
-            this.blocNotetxtbx.Location = new System.Drawing.Point(392, 38);
-            this.blocNotetxtbx.Multiline = true;
-            this.blocNotetxtbx.Name = "blocNotetxtbx";
-            this.blocNotetxtbx.Size = new System.Drawing.Size(439, 458);
-            this.blocNotetxtbx.TabIndex = 3;
             // 
             // eventBtn
             // 
@@ -159,6 +142,15 @@
             this.infoPBtn.Text = "Info partie";
             this.infoPBtn.UseVisualStyleBackColor = true;
             // 
+            // blocNotetxtbx
+            // 
+            this.blocNotetxtbx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.blocNotetxtbx.Location = new System.Drawing.Point(392, 38);
+            this.blocNotetxtbx.Multiline = true;
+            this.blocNotetxtbx.Name = "blocNotetxtbx";
+            this.blocNotetxtbx.Size = new System.Drawing.Size(439, 458);
+            this.blocNotetxtbx.TabIndex = 3;
+            // 
             // listeJLbl
             // 
             this.listeJLbl.AutoSize = true;
@@ -190,16 +182,25 @@
             this.blocNoteLbl.TabIndex = 6;
             this.blocNoteLbl.Text = "Bloc note :";
             // 
+            // logTxtbx
+            // 
+            this.logTxtbx.Location = new System.Drawing.Point(12, 208);
+            this.logTxtbx.Multiline = true;
+            this.logTxtbx.Name = "logTxtbx";
+            this.logTxtbx.Size = new System.Drawing.Size(370, 286);
+            this.logTxtbx.TabIndex = 7;
+            this.logTxtbx.TextChanged += new System.EventHandler(this.logTxtbx_TextChanged);
+            // 
             // PartieMJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1014, 508);
+            this.Controls.Add(this.logTxtbx);
             this.Controls.Add(this.blocNoteLbl);
             this.Controls.Add(this.logLbl);
             this.Controls.Add(this.listeJLbl);
             this.Controls.Add(this.blocNotetxtbx);
-            this.Controls.Add(this.logDtg);
             this.Controls.Add(this.flpActionButton);
             this.Controls.Add(this.jListDtg);
             this.Name = "PartieMJ";
@@ -207,7 +208,6 @@
             this.Load += new System.EventHandler(this.PartieMJ_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jListDtg)).EndInit();
             this.flpActionButton.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.logDtg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +218,6 @@
         private System.Windows.Forms.DataGridView jListDtg;
         private System.Windows.Forms.FlowLayoutPanel flpActionButton;
         private System.Windows.Forms.Button déBtn;
-        private System.Windows.Forms.DataGridView logDtg;
         private System.Windows.Forms.TextBox blocNotetxtbx;
         private System.Windows.Forms.Button eventBtn;
         private System.Windows.Forms.Button modifJBtn;
@@ -229,5 +228,6 @@
         private System.Windows.Forms.Label listeJLbl;
         private System.Windows.Forms.Label logLbl;
         private System.Windows.Forms.Label blocNoteLbl;
+        private System.Windows.Forms.TextBox logTxtbx;
     }
 }
