@@ -53,7 +53,7 @@ namespace Jeu_de_role
             try
             {
                 string url = server + "/Utilisateur/Inscription";
-                await Requetes.GetInfo(url, new List<AttributeModel> {
+                await Requetes.PostInfo(url, new List<AttributeModel> {
                 new AttributeModel("mail",mail),
                 new AttributeModel("pseudo",pseudo),
                 new AttributeModel("mdp",mdp),

@@ -120,6 +120,7 @@
             this.Controls.Add(this.txtIdGame);
             this.Name = "Menu";
             this.Text = "Menu";
+            this.Shown += new System.EventHandler(this.Menu_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.Watcher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParties)).EndInit();
             this.ResumeLayout(false);

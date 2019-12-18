@@ -15,6 +15,7 @@ namespace Jeu_de_role
     {
         private JObject infoPartie;
         private int idUtil;
+        private Menu menuForm;
 
         public void ChangerNomPerso(string nomPerso)
         {
@@ -27,7 +28,7 @@ namespace Jeu_de_role
         }
 
 
-        public RejoindrePartie(JObject partie,int util)
+        public RejoindrePartie(JObject partie,int util, Menu menu)
         {
             InitializeComponent();
             infoPartie = partie;
@@ -35,12 +36,20 @@ namespace Jeu_de_role
 
             txtTitre.Text = partie["TITRE"].ToString();
             txtDescription.Text = partie["DESCRIPTION_PARTIE"].ToString();
+            menuForm = menu;
         }
 
         private void btnNewPerso_Click(object sender, EventArgs e)
         {
             CreationPerso cp = new CreationPerso(idUtil, infoPartie["ID_PARTIE"].ToString(),this);
             cp.ShowDialog();
+        }
+
+        private void btnRejoindre_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            menuForm.RefreshPartieList();
+            menuForm.Show();
         }
     }
 }

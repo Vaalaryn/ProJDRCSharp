@@ -118,8 +118,9 @@
             this.btnRejoindre.TabIndex = 7;
             this.btnRejoindre.Text = "Rejoindre";
             this.btnRejoindre.UseVisualStyleBackColor = true;
+            this.btnRejoindre.Click += new System.EventHandler(this.btnRejoindre_Click);
             // 
-            // InfoPartie
+            // RejoindrePartie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -132,7 +133,7 @@
             this.Controls.Add(this.lblDescriptionPartie);
             this.Controls.Add(this.lblTitrePartie);
             this.Controls.Add(this.lblTitre);
-            this.Name = "InfoPartie";
+            this.Name = "RejoindrePartie";
             this.Text = "Rejoindre";
             this.ResumeLayout(false);
             this.PerformLayout();

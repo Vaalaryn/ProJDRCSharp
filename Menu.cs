@@ -28,11 +28,10 @@ namespace Jeu_de_role
         {
             InitializeComponent();
             IdUtilisateur = idUtilisateur;
-            RefreshPartieList();
         }
 
 
-   
+
 
 
 
@@ -47,17 +46,17 @@ namespace Jeu_de_role
                 Task<List<PartieModel>> result = Requetes.GetParties(IdUtilisateur);
                 this.Invoke(new MethodInvoker(delegate
                 {
-                    foreach(PartieModel p in result.Result)
+                    foreach (PartieModel p in result.Result)
                     {
                         AddRowToDgv(p.TITRE, p.DESCRIPTION_PARTIE);
                     }
-                    
+
                 }));
             });
 
         }
 
-        private void AddRowToDgv(string titre,string description)
+        private void AddRowToDgv(string titre, string description)
         {
             DataGridViewRow row = (DataGridViewRow)dgvParties.Rows[0].Clone();
             row.Cells[0].Value = titre;
@@ -97,26 +96,43 @@ namespace Jeu_de_role
         private void searchGameBtn_Click(object sender, EventArgs e)
         {
             string idPartieSearch = txtIdGame.Text;
-            if(!String.IsNullOrEmpty(idPartieSearch))
+            if (!String.IsNullOrEmpty(idPartieSearch))
             {
                 Task.Run(() =>
                 {
                     Task<string> result = Requetes.GetInfo(server + "/Partie/GetById?idPartie=" + idPartieSearch);
+                    Task<string> resultTestPartie = Requetes.GetInfo(server + "/Partie/EstDansLaPartie?idPartie=" + idPartieSearch + "&idUtil=" + IdUtilisateur);
                     this.Invoke(new MethodInvoker(delegate
                     {
+                        int isDansPartie = -1;
                         JObject json = JObject.Parse(result.Result);
 
                         if (json["Message"] == null)
                         {
-                            RejoindrePartie p = new RejoindrePartie(json, IdUtilisateur);
-                            this.Hide();
-                            p.Show();
+                            if (Int32.TryParse(resultTestPartie.Result, out isDansPartie))
+                            {
+                                if(isDansPartie == 0)
+                                {
+                                    RejoindrePartie p = new RejoindrePartie(json, IdUtilisateur,this);
+                                    this.Hide();
+                                    p.Show();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Vous avez déjà rejoint cette partie.");
+                                }
+                            }
                         }
                         else
                             MessageBox.Show("Aucune partie trouvée.");
                     }));
                 });
             }
+        }
+
+        private void Menu_Shown(object sender, EventArgs e)
+        {
+            RefreshPartieList();
         }
     }
 }
