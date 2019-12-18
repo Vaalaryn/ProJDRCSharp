@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO;
+using Newtonsoft.Json.Linq;
 
 namespace Jeu_de_role
 {
@@ -91,6 +92,31 @@ namespace Jeu_de_role
             AjoutPartie ajoutPartie = new AjoutPartie(IdUtilisateur);
             ajoutPartie.ShowDialog();
             RefreshPartieList();
+        }
+
+        private void searchGameBtn_Click(object sender, EventArgs e)
+        {
+            string idPartieSearch = txtIdGame.Text;
+            if(!String.IsNullOrEmpty(idPartieSearch))
+            {
+                Task.Run(() =>
+                {
+                    Task<string> result = Requetes.GetInfo(server + "/Partie/GetById?idPartie=" + idPartieSearch);
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+                        JObject json = JObject.Parse(result.Result);
+
+                        if (json["Message"] == null)
+                        {
+                            RejoindrePartie p = new RejoindrePartie(json, IdUtilisateur);
+                            this.Hide();
+                            p.Show();
+                        }
+                        else
+                            MessageBox.Show("Aucune partie trouvée.");
+                    }));
+                });
+            }
         }
     }
 }

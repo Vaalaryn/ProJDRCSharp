@@ -79,6 +79,7 @@
             this.searchGameBtn.TabIndex = 4;
             this.searchGameBtn.Text = "R";
             this.searchGameBtn.UseVisualStyleBackColor = true;
+            this.searchGameBtn.Click += new System.EventHandler(this.searchGameBtn_Click);
             // 
             // Watcher
             // 
