@@ -39,7 +39,6 @@ namespace Jeu_de_role
 
                     this.Invoke(new MethodInvoker(delegate
                     {
-                        MessageBox.Show(result.Result);
                         this.Close();
                     }));
                 });

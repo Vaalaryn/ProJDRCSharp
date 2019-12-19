@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtIdGame = new System.Windows.Forms.TextBox();
             this.CreateGameBtn = new System.Windows.Forms.Button();
             this.userInfoBtn = new System.Windows.Forms.Button();
@@ -36,6 +37,8 @@
             this.dgvParties = new System.Windows.Forms.DataGridView();
             this.dgvTitre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblPartie = new System.Windows.Forms.Label();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.listPartieDTG = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Watcher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParties)).BeginInit();
@@ -92,24 +95,64 @@
             // 
             // dgvParties
             // 
-            this.dgvParties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvParties.AllowUserToResizeColumns = false;
+            this.dgvParties.AllowUserToResizeRows = false;
+            this.dgvParties.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvParties.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvParties.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvParties.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParties.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvParties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTitre,
-            this.dgvDescription});
-            this.dgvParties.Location = new System.Drawing.Point(12, 109);
+            this.dgvDescription,
+            this.ID});
+            this.dgvParties.Location = new System.Drawing.Point(12, 139);
+            this.dgvParties.MultiSelect = false;
             this.dgvParties.Name = "dgvParties";
-            this.dgvParties.Size = new System.Drawing.Size(262, 273);
+            this.dgvParties.ReadOnly = true;
+            this.dgvParties.RowHeadersVisible = false;
+            this.dgvParties.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvParties.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvParties.Size = new System.Drawing.Size(262, 243);
             this.dgvParties.TabIndex = 5;
+            this.dgvParties.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParties_CellClick);
             // 
             // dgvTitre
             // 
             this.dgvTitre.HeaderText = "Titre";
             this.dgvTitre.Name = "dgvTitre";
+            this.dgvTitre.ReadOnly = true;
             // 
             // dgvDescription
             // 
             this.dgvDescription.HeaderText = "Description";
             this.dgvDescription.Name = "dgvDescription";
+            this.dgvDescription.ReadOnly = true;
+            // 
+            // lblPartie
+            // 
+            this.lblPartie.AutoSize = true;
+            this.lblPartie.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartie.Location = new System.Drawing.Point(12, 111);
+            this.lblPartie.Name = "lblPartie";
+            this.lblPartie.Size = new System.Drawing.Size(120, 25);
+            this.lblPartie.TabIndex = 6;
+            this.lblPartie.Text = "Vos parties";
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // listPartieDTG
             // 
@@ -124,6 +167,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(286, 450);
+            this.Controls.Add(this.lblPartie);
             this.Controls.Add(this.dgvParties);
             this.Controls.Add(this.listPartieDTG);
             this.Controls.Add(this.searchGameBtn);
@@ -151,6 +195,8 @@
         private System.Windows.Forms.DataGridView dgvParties;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTitre;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDescription;
+        private System.Windows.Forms.Label lblPartie;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridView listPartieDTG;
     }
 }

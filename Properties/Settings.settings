@@ -5,5 +5,8 @@
     <Setting Name="SERVER" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://10.176.131.106:8080/api</Value>
     </Setting>
+    <Setting Name="SERVER2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://localhost:57407</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

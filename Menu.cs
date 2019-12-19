@@ -18,6 +18,7 @@ namespace Jeu_de_role
     {
         //Adresse du serveur
         private string server = Properties.Settings.Default.SERVER.ToString();
+        DataGridViewRow row;
 
         //Joueur
         private int IdUtilisateur = 0;
@@ -28,6 +29,8 @@ namespace Jeu_de_role
         {
             InitializeComponent();
             IdUtilisateur = idUtilisateur;
+            row = (DataGridViewRow)dgvParties.Rows[0].Clone();
+            dgvParties.AllowUserToAddRows = false;
         }
 
 
@@ -40,15 +43,15 @@ namespace Jeu_de_role
         /// </summary>
         public void RefreshPartieList()
         {
-            dgvParties.Rows.Clear();
             Task.Run(() =>
             {
                 Task<List<PartieModel>> result = Requetes.GetParties(IdUtilisateur);
                 this.Invoke(new MethodInvoker(delegate
                 {
+                    dgvParties.Rows.Clear();
                     foreach (PartieModel p in result.Result)
                     {
-                        AddRowToDgv(p.TITRE, p.DESCRIPTION_PARTIE);
+                        AddRowToDgv(p.TITRE, p.DESCRIPTION_PARTIE, p.ID_PARTIE);
                     }
 
                 }));
@@ -56,12 +59,14 @@ namespace Jeu_de_role
 
         }
 
-        private void AddRowToDgv(string titre, string description)
+        private void AddRowToDgv(string titre, string description, string idPartie)
         {
-            DataGridViewRow row = (DataGridViewRow)dgvParties.Rows[0].Clone();
-            row.Cells[0].Value = titre;
-            row.Cells[1].Value = description;
-            dgvParties.Rows.Add(row);
+            
+            DataGridViewRow rowClone = (DataGridViewRow)row.Clone();
+            rowClone.Cells[0].Value = titre;
+            rowClone.Cells[1].Value = description;
+            rowClone.Cells[2].Value = idPartie;
+            dgvParties.Rows.Add(rowClone);
         }
 
 
@@ -111,9 +116,9 @@ namespace Jeu_de_role
                         {
                             if (Int32.TryParse(resultTestPartie.Result, out isDansPartie))
                             {
-                                if(isDansPartie == 0)
+                                if (isDansPartie == 0)
                                 {
-                                    RejoindrePartie p = new RejoindrePartie(json, IdUtilisateur,this);
+                                    RejoindrePartie p = new RejoindrePartie(json, IdUtilisateur, this);
                                     this.Hide();
                                     p.Show();
                                 }
@@ -133,6 +138,15 @@ namespace Jeu_de_role
         private void Menu_Shown(object sender, EventArgs e)
         {
             RefreshPartieList();
+        }
+
+        private void dgvParties_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow dgvr in dgvParties.SelectedRows)
+            {
+                string id = dgvr.Cells["ID"].Value.ToString();
+                
+            }
         }
     }
 }
