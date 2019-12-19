@@ -63,6 +63,18 @@
     <Compile Include="AjoutPartie.Designer.cs">
       <DependentUpon>AjoutPartie.cs</DependentUpon>
     </Compile>
+    <Compile Include="déPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="déPopUp.Designer.cs">
+      <DependentUpon>déPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Evenement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evenement.Designer.cs">
+      <DependentUpon>Evenement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classes\getFichePerso.cs" />
     <Compile Include="FichePerso.cs">
       <SubType>Form</SubType>
@@ -96,6 +108,24 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\PartieModel.cs" />
+    <Compile Include="ModifInventaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifInventaire.Designer.cs">
+      <DependentUpon>ModifInventaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modifJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modifJ.Designer.cs">
+      <DependentUpon>modifJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartieMJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartieMJ.Designer.cs">
+      <DependentUpon>PartieMJ.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\TraitementPersonnage.cs" />
     <Compile Include="Profil.cs">
       <SubType>Form</SubType>
@@ -112,6 +142,12 @@
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="déPopUp.resx">
+      <DependentUpon>déPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Evenement.resx">
+      <DependentUpon>Evenement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FichePerso.resx">
       <DependentUpon>FichePerso.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +159,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifInventaire.resx">
+      <DependentUpon>ModifInventaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifJ.resx">
+      <DependentUpon>modifJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartieMJ.resx">
+      <DependentUpon>PartieMJ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profil.resx">
       <DependentUpon>Profil.cs</DependentUpon>
