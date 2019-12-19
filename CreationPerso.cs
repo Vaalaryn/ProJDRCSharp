@@ -11,15 +11,16 @@ namespace Jeu_de_role
     {
         private JArray ClasseJson;
 
-        private int idUtil = 1;
-        private string idPartie = "1";
+        private int idUtil;
+        private string idPartie;
+        private RejoindrePartie window;
 
-        public Connexion co;
-
-        public CreationPerso()
+        public CreationPerso(int util, string partie, RejoindrePartie linkedWindow)
         {
             InitializeComponent();
-            co = new Connexion();
+            idUtil = util;
+            idPartie = partie;
+            window = linkedWindow;
             Task.Run(() =>
             {
                 Task<string> result = Requetes.GetInfo(Properties.Settings.Default.SERVER.ToString() + "/Classe/GetAll");
@@ -109,7 +110,6 @@ namespace Jeu_de_role
                             new AttributeModel ("description", desc_perso.Text),
                             new AttributeModel ("vie", ClasseJson[select_classe.SelectedIndex]["MAX_VIE"].ToString()),
                             new AttributeModel ("mana", ClasseJson[select_classe.SelectedIndex]["MAX_MANA"].ToString())
-
                         });
         }
 
@@ -117,8 +117,9 @@ namespace Jeu_de_role
         private void button1_Click(object sender, EventArgs e)
         {
             testAsync();
-            //this.Close();
-            co.Show();
+            window.ChangerNomPerso(nom_perso.Text);
+            window.Show();
+            this.Close();
         }
     }
 }

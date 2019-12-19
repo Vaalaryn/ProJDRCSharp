@@ -88,6 +88,12 @@
     <Compile Include="CreationPerso.Designer.cs">
       <DependentUpon>CreationPerso.cs</DependentUpon>
     </Compile>
+    <Compile Include="RejoindrePartie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RejoindrePartie.Designer.cs">
+      <DependentUpon>RejoindrePartie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AttributeModel.cs" />
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreationPerso.resx">
       <DependentUpon>CreationPerso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RejoindrePartie.resx">
+      <DependentUpon>RejoindrePartie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inscription.resx">
       <DependentUpon>Inscription.cs</DependentUpon>

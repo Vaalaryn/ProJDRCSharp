@@ -82,6 +82,7 @@
             this.searchGameBtn.TabIndex = 4;
             this.searchGameBtn.Text = "R";
             this.searchGameBtn.UseVisualStyleBackColor = true;
+            this.searchGameBtn.Click += new System.EventHandler(this.searchGameBtn_Click);
             // 
             // Watcher
             // 
@@ -131,6 +132,7 @@
             this.Controls.Add(this.txtIdGame);
             this.Name = "Menu";
             this.Text = "Menu";
+            this.Shown += new System.EventHandler(this.Menu_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.Watcher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPartieDTG)).EndInit();
