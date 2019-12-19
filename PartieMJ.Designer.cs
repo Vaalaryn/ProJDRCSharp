@@ -184,6 +184,7 @@
             this.changeMJBtn.TabIndex = 5;
             this.changeMJBtn.Text = "Changer MJ";
             this.changeMJBtn.UseVisualStyleBackColor = true;
+            this.changeMJBtn.Click += new System.EventHandler(this.changeMJBtn_Click);
             // 
             // infoPBtn
             // 
