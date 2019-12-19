@@ -124,6 +124,9 @@
     <EmbeddedResource Include="déPopUp.resx">
       <DependentUpon>déPopUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="evenement.resx">
+      <DependentUpon>evenement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inscription.resx">
       <DependentUpon>Inscription.cs</DependentUpon>
     </EmbeddedResource>

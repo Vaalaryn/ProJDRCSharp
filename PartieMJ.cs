@@ -18,6 +18,10 @@ namespace Jeu_de_role
         {
             InitializeComponent();
         }
+        public void ecrireLog(string log)
+        {
+            logTxtbx.Text += log;
+        }
 
         private void déBtn_Click(object sender, EventArgs e)
         {
@@ -35,7 +39,7 @@ namespace Jeu_de_role
 
         private void PartieMJ_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void modifJBtn_Click(object sender, EventArgs e)
@@ -51,8 +55,13 @@ namespace Jeu_de_role
 
         private void eventBtn_Click(object sender, EventArgs e)
         {
-            var evenement = new evenement();
+            var evenement = new evenement(this);
             evenement.Show(this);
+        }
+
+        private void logTxtbx_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
