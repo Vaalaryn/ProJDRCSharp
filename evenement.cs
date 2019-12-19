@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Jeu_de_role
 {
-    public partial class evenement : Form
+    public partial class Evenement : Form
     {
         public static string eventText;
         private PartieMJ fenetre;
-        public evenement(PartieMJ pmj)
+        public Evenement(PartieMJ pmj)
         {
             InitializeComponent();
             fenetre = pmj;

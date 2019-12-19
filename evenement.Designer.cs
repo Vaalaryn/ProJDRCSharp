@@ -1,6 +1,6 @@
 ﻿namespace Jeu_de_role
 {
-    partial class evenement
+    partial class Evenement
     {
         /// <summary>
         /// Required designer variable.

@@ -55,13 +55,24 @@ namespace Jeu_de_role
 
         private void eventBtn_Click(object sender, EventArgs e)
         {
-            var evenement = new evenement(this);
+            var evenement = new Evenement(this);
             evenement.Show(this);
         }
 
         private void logTxtbx_TextChanged(object sender, EventArgs e)
         {
+            
+        }
 
+        private void changeMJBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modifInventBtn_Click(object sender, EventArgs e)
+        {
+            var modifInventaire = new ModifInventaire();
+            modifInventaire.Show(this);
         }
     }
 }
