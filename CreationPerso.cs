@@ -92,18 +92,25 @@ namespace Jeu_de_role
 
         }
 
-        private async void testAsync()
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            int idJoueur;
-            string result = await Requetes.PostInfo(Properties.Settings.Default.SERVER.ToString() + "/Joueur/Ajouter", new List<AttributeModel>
+            Task.Run(() =>
+            {
+                int idJoueur;
+                Task<string> result = Requetes.PostInfo(Properties.Settings.Default.SERVER.ToString() + "/Joueur/Ajouter", new List<AttributeModel>
                 {
                     new AttributeModel ("idUtil", idUtil),
                     new AttributeModel ("idPartie", idPartie)
 
                 });
-            string result2 = await Requetes.PostInfo(Properties.Settings.Default.SERVER.ToString() + "/Personnage/Ajouter", new List<AttributeModel>
+                
+                this.Invoke(new MethodInvoker(delegate
+                {
+                    idJoueur = Convert.ToInt32(result.Result);
+                    Task<string> result2 = Requetes.PostInfo(Properties.Settings.Default.SERVER.ToString() + "/Personnage/Ajouter", new List<AttributeModel>
                         {
-                            new AttributeModel ("idJoueur", Convert.ToInt32(result)),
+                            new AttributeModel ("idJoueur", idJoueur),
                             new AttributeModel ("idClasse", select_classe.SelectedIndex + 1),
                             new AttributeModel ("nom", nom_perso.Text),
                             new AttributeModel ("prenom", prenom_perso.Text),
@@ -111,15 +118,13 @@ namespace Jeu_de_role
                             new AttributeModel ("vie", ClasseJson[select_classe.SelectedIndex]["MAX_VIE"].ToString()),
                             new AttributeModel ("mana", ClasseJson[select_classe.SelectedIndex]["MAX_MANA"].ToString())
                         });
-        }
 
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            testAsync();
-            window.ChangerNomPerso(nom_perso.Text);
-            window.Show();
-            this.Close();
+                    window.ChangerNomPerso(nom_perso.Text);
+                    window.Show();
+                    this.Close();
+                }));
+            });
+            
         }
     }
 }

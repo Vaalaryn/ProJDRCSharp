@@ -16,11 +16,13 @@ namespace Jeu_de_role
 
         //Utilisateur
         private int IdUtilisateur = 0;
+        private Menu menuLinked;
 
-        public AjoutPartie(int idUtilisateur)
+        public AjoutPartie(int idUtilisateur,Menu menu)
         {
             InitializeComponent();
             IdUtilisateur = idUtilisateur;
+            menuLinked = menu;
         }
 
         private void btnValider_Click(object sender, EventArgs e)
@@ -36,9 +38,10 @@ namespace Jeu_de_role
                         new Models.AttributeModel("titre",txtTitle.Text),
                         new Models.AttributeModel("description",txtDescription.Text)
                     });
-
+                    result.Wait();
                     this.Invoke(new MethodInvoker(delegate
                     {
+                        menuLinked.RefreshPartieList();
                         this.Close();
                     }));
                 });

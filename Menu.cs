@@ -93,7 +93,7 @@ namespace Jeu_de_role
 
         private void CreateGameBtn_Click(object sender, EventArgs e)
         {
-            AjoutPartie ajoutPartie = new AjoutPartie(IdUtilisateur);
+            AjoutPartie ajoutPartie = new AjoutPartie(IdUtilisateur,this);
             ajoutPartie.ShowDialog();
             RefreshPartieList();
         }
@@ -145,7 +145,9 @@ namespace Jeu_de_role
             foreach (DataGridViewRow dgvr in dgvParties.SelectedRows)
             {
                 string id = dgvr.Cells["ID"].Value.ToString();
-                
+                PartieMJ mj = new PartieMJ(id);
+                mj.Show();
+                this.Close();
             }
         }
     }
