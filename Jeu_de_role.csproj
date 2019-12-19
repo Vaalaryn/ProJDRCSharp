@@ -44,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -73,6 +74,19 @@
     </Compile>
     <Compile Include="Evenement.Designer.cs">
       <DependentUpon>Evenement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\getFichePerso.cs" />
+    <Compile Include="FichePerso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FichePerso.Designer.cs">
+      <DependentUpon>FichePerso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreationPerso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreationPerso.Designer.cs">
+      <DependentUpon>CreationPerso.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AttributeModel.cs" />
     <Compile Include="Connexion.cs">
@@ -112,6 +126,7 @@
     <Compile Include="PartieMJ.Designer.cs">
       <DependentUpon>PartieMJ.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\TraitementPersonnage.cs" />
     <Compile Include="Profil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -132,6 +147,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Evenement.resx">
       <DependentUpon>Evenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FichePerso.resx">
+      <DependentUpon>FichePerso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreationPerso.resx">
+      <DependentUpon>CreationPerso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inscription.resx">
       <DependentUpon>Inscription.cs</DependentUpon>

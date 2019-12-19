@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace Jeu_de_role
 {
@@ -17,7 +13,7 @@ namespace Jeu_de_role
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PartieMJ());
+            Application.Run(new Connexion());
         }
     }
 }
