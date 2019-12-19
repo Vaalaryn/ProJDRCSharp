@@ -139,6 +139,13 @@ namespace Jeu_de_role
 
         private void WatcherPartie_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
+            if (e.FullPath.Split('\\').Last() == idPartie + ".json")
+            {
+                System.Diagnostics.Debug.WriteLine(e.FullPath);
+                logTxtbx.Text = "";
+                RefreshListePerso();
+            }
+        }
 
         private void changeMJBtn_Click(object sender, EventArgs e)
         {
@@ -151,10 +158,12 @@ namespace Jeu_de_role
             modifInventaire.Show(this);
         }
 
-        private void modifInventBtn_Click(object sender, EventArgs e)
+        private void modifInventBtn_Click_1(object sender, EventArgs e)
         {
+
             ModifInventaire modif = new ModifInventaire();
             modif.Show();
+
         }
     }
 }

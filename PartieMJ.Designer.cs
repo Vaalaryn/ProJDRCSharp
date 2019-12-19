@@ -163,7 +163,7 @@
             this.modifInventBtn.TabIndex = 3;
             this.modifInventBtn.Text = "Modif inventaire";
             this.modifInventBtn.UseVisualStyleBackColor = true;
-            this.modifInventBtn.Click += new System.EventHandler(this.modifInventBtn_Click);
+            this.modifInventBtn.Click += new System.EventHandler(this.modifInventBtn_Click_1);
             // 
             // sendPicBtn
             // 
