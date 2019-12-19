@@ -16,17 +16,32 @@ namespace Jeu_de_role
     {
         private string server = Properties.Settings.Default.SERVER.ToString();
         private string idPartie = "bEScFHceSkIgXs0R";
-        private JObject jsonPartie;
+        private JObject jsonPartie = new JObject();
+        private JArray jsonLog = new JArray();
         private DataGridViewRow rowClone;
         public PartieMJ()
         {
             InitializeComponent();
-            jsonPartie = JObject.Parse(File.ReadAllText(@"\\10.176.131.132\Users\Elise\Documents\Watcher\Parties\" + idPartie + ".json"));
             rowClone = (DataGridViewRow)jListDtg.Rows[0].Clone();
             jListDtg.AllowUserToAddRows = false;
-
-            RefreshListePerso();
         }
+
+        public void InitJson()
+        {
+            string textLog = File.ReadAllText(@"\\10.176.131.132\Users\Elise\Documents\Watcher\Logs\" + idPartie + ".json");
+            string textPartie = File.ReadAllText(@"\\10.176.131.132\Users\Elise\Documents\Watcher\Parties\" + idPartie + ".json");
+            if (!String.IsNullOrEmpty(textPartie))
+                jsonPartie = JObject.Parse(textPartie);
+            if (!String.IsNullOrEmpty(textLog))
+                jsonLog = JArray.Parse(textLog);
+
+            if (jsonPartie.Count > 0)
+                RefreshListePerso();
+            if (jsonLog.Count > 0)
+                RefreshLogs();
+        }
+
+
 
         public void EcrireLog(string log)
         {
@@ -39,21 +54,25 @@ namespace Jeu_de_role
         public void RefreshListePerso()
         {
             jListDtg.Rows.Clear();
-            JArray listeJoueur = (JArray)jsonPartie["joueur"];
+            JArray listeJoueur;
+            try
+            {
+                listeJoueur = (JArray)jsonPartie["joueur"];
+            }
+            catch
+            {
+                listeJoueur = new JArray();
+            }
             foreach (JObject joueurInfo in listeJoueur)
             {
                 JArray perso = JArray.Parse(joueurInfo["personnage"].ToString());
-                if(perso.Count > 0)
+                if (perso.Count > 0)
                     AddRowToDgv(perso.First["NOM"].ToString(), perso.First["PRENOM"].ToString(), perso.First["ID_PERSO"].ToString());
-
-
-
             }
         }
 
         private void AddRowToDgv(string nom, string prenom, string idJoueur)
         {
-            
             DataGridViewRow row = (DataGridViewRow)rowClone.Clone();
             row.Cells[0].Value = nom;
             row.Cells[1].Value = prenom;
@@ -62,9 +81,17 @@ namespace Jeu_de_role
         }
         /* ****************** Liste des perso **********************/
 
+        /* ****************** Logs *********************************/
+        public void RefreshLogs()
+        {
+            if (jsonLog.Count > 0)
+                foreach (JObject json in jsonLog)
+                {
+                    logTxtbx.Text += json["MESSAGE"].ToString() + "\r\n";
+                }
 
-
-
+        }
+        /* ****************** Logs *********************************/
 
 
 
@@ -91,7 +118,7 @@ namespace Jeu_de_role
 
         private void eventBtn_Click(object sender, EventArgs e)
         {
-            var evenement = new evenement(this);
+            var evenement = new evenement(this, idPartie);
             evenement.Show(this);
         }
         /// <summary>
@@ -104,6 +131,8 @@ namespace Jeu_de_role
             if (e.FullPath.Split('\\').Last() == idPartie + ".json")
             {
                 System.Diagnostics.Debug.WriteLine(e.FullPath);
+                logTxtbx.Text = "";
+                RefreshLogs();
             }
 
         }
