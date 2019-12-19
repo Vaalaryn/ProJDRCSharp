@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtIdGame = new System.Windows.Forms.TextBox();
             this.CreateGameBtn = new System.Windows.Forms.Button();
             this.userInfoBtn = new System.Windows.Forms.Button();
@@ -37,8 +37,8 @@
             this.dgvParties = new System.Windows.Forms.DataGridView();
             this.dgvTitre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblPartie = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblPartie = new System.Windows.Forms.Label();
             this.listPartieDTG = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Watcher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParties)).BeginInit();
@@ -57,7 +57,6 @@
             // 
             this.CreateGameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateGameBtn.Location = new System.Drawing.Point(12, 53);
-            this.CreateGameBtn.Location = new System.Drawing.Point(57, 53);
             this.CreateGameBtn.Name = "CreateGameBtn";
             this.CreateGameBtn.Size = new System.Drawing.Size(262, 50);
             this.CreateGameBtn.TabIndex = 1;
@@ -68,7 +67,7 @@
             // userInfoBtn
             // 
             this.userInfoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userInfoBtn.Location = new System.Drawing.Point(43, 388);
+            this.userInfoBtn.Location = new System.Drawing.Point(12, 388);
             this.userInfoBtn.Name = "userInfoBtn";
             this.userInfoBtn.Size = new System.Drawing.Size(262, 50);
             this.userInfoBtn.TabIndex = 2;
@@ -101,14 +100,14 @@
             this.dgvParties.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvParties.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvParties.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParties.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParties.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvParties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTitre,
@@ -137,6 +136,13 @@
             this.dgvDescription.Name = "dgvDescription";
             this.dgvDescription.ReadOnly = true;
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
             // lblPartie
             // 
             this.lblPartie.AutoSize = true;
@@ -147,19 +153,12 @@
             this.lblPartie.TabIndex = 6;
             this.lblPartie.Text = "Vos parties";
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
             // listPartieDTG
             // 
             this.listPartieDTG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listPartieDTG.Location = new System.Drawing.Point(12, 109);
+            this.listPartieDTG.Location = new System.Drawing.Point(12, 139);
             this.listPartieDTG.Name = "listPartieDTG";
-            this.listPartieDTG.Size = new System.Drawing.Size(262, 273);
+            this.listPartieDTG.Size = new System.Drawing.Size(262, 243);
             this.listPartieDTG.TabIndex = 5;
             // 
             // Menu
