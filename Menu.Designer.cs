@@ -39,8 +39,10 @@
             this.dgvDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPartie = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.listPartieDTG = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Watcher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listPartieDTG)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIdGame
@@ -55,6 +57,7 @@
             // 
             this.CreateGameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateGameBtn.Location = new System.Drawing.Point(12, 53);
+            this.CreateGameBtn.Location = new System.Drawing.Point(57, 53);
             this.CreateGameBtn.Name = "CreateGameBtn";
             this.CreateGameBtn.Size = new System.Drawing.Size(262, 50);
             this.CreateGameBtn.TabIndex = 1;
@@ -65,7 +68,7 @@
             // userInfoBtn
             // 
             this.userInfoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userInfoBtn.Location = new System.Drawing.Point(12, 388);
+            this.userInfoBtn.Location = new System.Drawing.Point(43, 388);
             this.userInfoBtn.Name = "userInfoBtn";
             this.userInfoBtn.Size = new System.Drawing.Size(262, 50);
             this.userInfoBtn.TabIndex = 2;
@@ -151,6 +154,14 @@
             this.ID.ReadOnly = true;
             this.ID.Visible = false;
             // 
+            // listPartieDTG
+            // 
+            this.listPartieDTG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.listPartieDTG.Location = new System.Drawing.Point(12, 109);
+            this.listPartieDTG.Name = "listPartieDTG";
+            this.listPartieDTG.Size = new System.Drawing.Size(262, 273);
+            this.listPartieDTG.TabIndex = 5;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +169,7 @@
             this.ClientSize = new System.Drawing.Size(286, 450);
             this.Controls.Add(this.lblPartie);
             this.Controls.Add(this.dgvParties);
+            this.Controls.Add(this.listPartieDTG);
             this.Controls.Add(this.searchGameBtn);
             this.Controls.Add(this.userInfoBtn);
             this.Controls.Add(this.CreateGameBtn);
@@ -167,6 +179,7 @@
             this.Shown += new System.EventHandler(this.Menu_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.Watcher)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.listPartieDTG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,5 +197,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDescription;
         private System.Windows.Forms.Label lblPartie;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridView listPartieDTG;
     }
 }

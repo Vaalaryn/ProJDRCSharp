@@ -15,7 +15,5 @@ namespace Jeu_de_role
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Connexion());
         }
-
-
     }
 }
