@@ -48,6 +48,7 @@ namespace Jeu_de_role
                 Task<List<PartieModel>> result = Requetes.GetParties(IdUtilisateur);
                 this.Invoke(new MethodInvoker(delegate
                 {
+                    dgvParties.Rows.Clear();
                     foreach (PartieModel p in result.Result)
                     {
                         AddRowToDgv(p.TITRE, p.DESCRIPTION_PARTIE, p.ID_PARTIE);
@@ -60,7 +61,7 @@ namespace Jeu_de_role
 
         private void AddRowToDgv(string titre, string description, string idPartie)
         {
-
+            
             DataGridViewRow rowClone = (DataGridViewRow)row.Clone();
             rowClone.Cells[0].Value = titre;
             rowClone.Cells[1].Value = description;

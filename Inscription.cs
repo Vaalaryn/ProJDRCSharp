@@ -17,7 +17,7 @@ namespace Jeu_de_role
 {
     public partial class Inscription : Form
     {
-        private string server = Properties.Settings.Default.SERVER2.ToString();
+        private string server = Properties.Settings.Default.SERVER.ToString();
 
         public byte[] bytes;
 
