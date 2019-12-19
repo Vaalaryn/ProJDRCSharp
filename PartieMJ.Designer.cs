@@ -31,6 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jListDtg = new System.Windows.Forms.DataGridView();
+            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flpActionButton = new System.Windows.Forms.FlowLayoutPanel();
             this.déBtn = new System.Windows.Forms.Button();
             this.eventBtn = new System.Windows.Forms.Button();
@@ -46,9 +49,6 @@
             this.logTxtbx = new System.Windows.Forms.TextBox();
             this.WatcherPartie = new System.IO.FileSystemWatcher();
             this.WatcherLogs = new System.IO.FileSystemWatcher();
-            this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.jListDtg)).BeginInit();
             this.flpActionButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WatcherPartie)).BeginInit();
@@ -87,6 +87,25 @@
             this.jListDtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jListDtg.Size = new System.Drawing.Size(374, 146);
             this.jListDtg.TabIndex = 0;
+            // 
+            // nom
+            // 
+            this.nom.HeaderText = "Nom";
+            this.nom.Name = "nom";
+            this.nom.ReadOnly = true;
+            // 
+            // prenom
+            // 
+            this.prenom.HeaderText = "Prenom";
+            this.prenom.Name = "prenom";
+            this.prenom.ReadOnly = true;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
             // flpActionButton
             // 
@@ -225,35 +244,16 @@
             // WatcherPartie
             // 
             this.WatcherPartie.EnableRaisingEvents = true;
-            this.WatcherPartie.Path = "\\\\localhost\\Watcher2\\Parties";
+            this.WatcherPartie.Path = "\\\\10.176.131.132\\Users\\Elise\\Documents\\Watcher\\Parties";
             this.WatcherPartie.SynchronizingObject = this;
             this.WatcherPartie.Changed += new System.IO.FileSystemEventHandler(this.WatcherPartie_Changed);
             // 
             // WatcherLogs
             // 
             this.WatcherLogs.EnableRaisingEvents = true;
-            this.WatcherLogs.Path = "\\\\localhost\\Watcher2\\\\Logs";
+            this.WatcherLogs.Path = "\\\\10.176.131.132\\Users\\Elise\\Documents\\Watcher\\Logs";
             this.WatcherLogs.SynchronizingObject = this;
             this.WatcherLogs.Changed += new System.IO.FileSystemEventHandler(this.WatcherLogs_Changed);
-            // 
-            // nom
-            // 
-            this.nom.HeaderText = "Nom";
-            this.nom.Name = "nom";
-            this.nom.ReadOnly = true;
-            // 
-            // prenom
-            // 
-            this.prenom.HeaderText = "Prenom";
-            this.prenom.Name = "prenom";
-            this.prenom.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
             // 
             // PartieMJ
             // 

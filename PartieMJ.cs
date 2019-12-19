@@ -22,7 +22,7 @@ namespace Jeu_de_role
         {
             InitializeComponent();
             jsonPartie = JObject.Parse(File.ReadAllText(@"\\10.176.131.132\Users\Elise\Documents\Watcher\Parties\" + idPartie + ".json"));
-            rowClone = (DataGridViewRow) jListDtg.Rows[0].Clone();
+            rowClone = (DataGridViewRow)jListDtg.Rows[0].Clone();
             jListDtg.AllowUserToAddRows = false;
 
             RefreshListePerso();
@@ -38,21 +38,26 @@ namespace Jeu_de_role
         /* ****************** Liste des perso **********************/
         public void RefreshListePerso()
         {
+            jListDtg.Rows.Clear();
             JArray listeJoueur = (JArray)jsonPartie["joueur"];
             foreach (JObject joueurInfo in listeJoueur)
             {
-                JObject perso = (JObject)joueurInfo["personnage"];
-                AddRowToDgv(perso["NOM"].ToString(), perso["PRENOM"].ToString(), perso["ID_PERSO"].ToString());
+                JArray perso = JArray.Parse(joueurInfo["personnage"].ToString());
+                if(perso.Count > 0)
+                    AddRowToDgv(perso.First["NOM"].ToString(), perso.First["PRENOM"].ToString(), perso.First["ID_PERSO"].ToString());
+
+
+
             }
         }
 
-        private void AddRowToDgv(string nom, string prenom,string idJoueur)
+        private void AddRowToDgv(string nom, string prenom, string idJoueur)
         {
-            jListDtg.Rows.Clear();
-            DataGridViewRow row = (DataGridViewRow)jListDtg.Rows[0].Clone();
+            
+            DataGridViewRow row = (DataGridViewRow)rowClone.Clone();
             row.Cells[0].Value = nom;
             row.Cells[1].Value = prenom;
-            row.Cells[3].Value = idJoueur;
+            row.Cells[2].Value = idJoueur;
             jListDtg.Rows.Add(row);
         }
         /* ****************** Liste des perso **********************/
@@ -100,7 +105,7 @@ namespace Jeu_de_role
             {
                 System.Diagnostics.Debug.WriteLine(e.FullPath);
             }
-                
+
         }
 
         private void WatcherPartie_Changed(object sender, System.IO.FileSystemEventArgs e)
@@ -108,8 +113,10 @@ namespace Jeu_de_role
             if (e.FullPath.Split('\\').Last() == idPartie + ".json")
             {
                 jsonPartie = JObject.Parse(File.ReadAllText(e.FullPath));
+                RefreshListePerso();
+                System.Diagnostics.Debug.WriteLine(e.FullPath);
             }
-                
+
         }
     }
 }
