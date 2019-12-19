@@ -68,11 +68,11 @@
     <Compile Include="déPopUp.Designer.cs">
       <DependentUpon>déPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="evenement.cs">
+    <Compile Include="Evenement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="evenement.Designer.cs">
-      <DependentUpon>evenement.cs</DependentUpon>
+    <Compile Include="Evenement.Designer.cs">
+      <DependentUpon>Evenement.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\AttributeModel.cs" />
     <Compile Include="Connexion.cs">
@@ -94,6 +94,12 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\PartieModel.cs" />
+    <Compile Include="ModifInventaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifInventaire.Designer.cs">
+      <DependentUpon>ModifInventaire.cs</DependentUpon>
+    </Compile>
     <Compile Include="modifJ.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,14 +130,17 @@
     <EmbeddedResource Include="déPopUp.resx">
       <DependentUpon>déPopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="evenement.resx">
-      <DependentUpon>evenement.cs</DependentUpon>
+    <EmbeddedResource Include="Evenement.resx">
+      <DependentUpon>Evenement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inscription.resx">
       <DependentUpon>Inscription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifInventaire.resx">
+      <DependentUpon>ModifInventaire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modifJ.resx">
       <DependentUpon>modifJ.cs</DependentUpon>

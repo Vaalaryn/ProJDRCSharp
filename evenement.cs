@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Jeu_de_role
 {
-    public partial class evenement : Form
+    public partial class Evenement : Form
     {
         private PartieMJ fenetre;
         private string server = Properties.Settings.Default.SERVER;

@@ -139,13 +139,16 @@ namespace Jeu_de_role
 
         private void WatcherPartie_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
-            if (e.FullPath.Split('\\').Last() == idPartie + ".json")
-            {
-                jsonPartie = JObject.Parse(File.ReadAllText(e.FullPath));
-                RefreshListePerso();
-                System.Diagnostics.Debug.WriteLine(e.FullPath);
-            }
 
+        private void changeMJBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void modifInventBtn_Click(object sender, EventArgs e)
+        {
+            var modifInventaire = new ModifInventaire();
+            modifInventaire.Show(this);
         }
     }
 }
