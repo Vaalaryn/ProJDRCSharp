@@ -163,6 +163,7 @@
             this.modifInventBtn.TabIndex = 3;
             this.modifInventBtn.Text = "Modif inventaire";
             this.modifInventBtn.UseVisualStyleBackColor = true;
+            this.modifInventBtn.Click += new System.EventHandler(this.modifInventBtn_Click);
             // 
             // sendPicBtn
             // 
@@ -238,6 +239,7 @@
             this.logTxtbx.Location = new System.Drawing.Point(12, 208);
             this.logTxtbx.Multiline = true;
             this.logTxtbx.Name = "logTxtbx";
+            this.logTxtbx.ReadOnly = true;
             this.logTxtbx.Size = new System.Drawing.Size(370, 286);
             this.logTxtbx.TabIndex = 7;
             // 

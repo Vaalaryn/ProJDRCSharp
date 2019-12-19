@@ -118,7 +118,7 @@ namespace Jeu_de_role
 
         private void eventBtn_Click(object sender, EventArgs e)
         {
-            var evenement = new evenement(this, idPartie);
+            var evenement = new Evenement(this, idPartie);
             evenement.Show(this);
         }
         /// <summary>
@@ -146,6 +146,12 @@ namespace Jeu_de_role
                 System.Diagnostics.Debug.WriteLine(e.FullPath);
             }
 
+        }
+
+        private void modifInventBtn_Click(object sender, EventArgs e)
+        {
+            ModifInventaire modif = new ModifInventaire();
+            modif.Show();
         }
     }
 }

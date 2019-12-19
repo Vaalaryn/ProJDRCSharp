@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace Jeu_de_role
 {
-    public partial class evenement : Form
+    public partial class Evenement : Form
     {
         private PartieMJ fenetre;
         private string server = Properties.Settings.Default.SERVER;
         private string idPartie = "";
         private short type = 1;
 
-        public evenement(PartieMJ pmj, string idPartie)
+        public Evenement(PartieMJ pmj, string idPartie)
         {
             InitializeComponent();
             fenetre = pmj;
