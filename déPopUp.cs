@@ -12,6 +12,7 @@ namespace Jeu_de_role
 {
     public partial class déPopUp : Form
     {
+
         public déPopUp()
         {
             InitializeComponent();
@@ -29,14 +30,59 @@ namespace Jeu_de_role
 
         private void lancerBtn_Click(object sender, EventArgs e)
         {
+            var nbrDé = Convert.ToInt32(déNbtxtBx.Text);
+            var nbrFaces = Convert.ToInt32(déFacetxtBx.Text);
+            var somme=0;
+            var min = nbrFaces;
+            var max = 0;
+            //var precedent = 0;
+            BindingList<int> termsList = new BindingList<int>();
             Random random = new Random();
-            int randomNumber = random.Next(1, Convert.ToInt32(déFacetxtBx.Text) + 1);
-            resultDeDtg.Text = Convert.ToString(randomNumber);
+            System.Diagnostics.Debug.WriteLine("tst");
+            //resultDeDtg.Text = Convert.ToString(randomNumber);
 
-            if (déFacetxtBx.Text == string.Empty && déNbtxtBx.Text == string.Empty)
+            if (déFacetxtBx.Text == string.Empty || déNbtxtBx.Text == string.Empty)
             {
-                MessageBox.Show("Les champs sont vides");
+                System.Diagnostics.Debug.WriteLine("NOPE");
+                MessageBox.Show("Au moins un des champs est vide");
             }
+            else
+            {
+                DataTable dt = new DataTable();
+                dt.Rows.Add();
+                System.Diagnostics.Debug.WriteLine("tst1");
+                for (int i = 0; i < nbrDé; i++)
+                {
+                    string tst = "Dé " + (i+1).ToString();
+                    dt.Columns.Add(tst) ;
+                    int randomNumber = random.Next(1, nbrFaces + 1);
+                    termsList.Add(randomNumber);
+                    
+                    dt.Rows[0][tst] = randomNumber;
+                    somme = somme + randomNumber;
+                   
+                    if (min > randomNumber)
+                    {
+                        min = randomNumber;
+                    }
+                    if (max < randomNumber)
+                    {
+                        max = randomNumber;
+                    }
+
+
+                    
+                }
+                label1.Text = "min :" + min.ToString();
+                label2.Text = "max :" + max.ToString();
+                label3.Text = "somme :" + somme.ToString();
+                label4.Text = "moyenne :" + (somme/nbrDé).ToString();
+                System.Diagnostics.Debug.WriteLine(termsList);
+                resultDeDtg.DataSource = dt;
+                
+            }
+
+            
         }
 
         private void resultDéLbl_Click(object sender, EventArgs e)
