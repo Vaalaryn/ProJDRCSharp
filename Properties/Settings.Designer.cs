@@ -26,18 +26,6 @@ namespace Jeu_de_role.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://10.176.131.106:8080/api")]
-        public string SERVER1 {
-            get {
-                return ((string)(this["SERVER1"]));
-            }
-            set {
-                this["SERVER1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:57407")]
         public string SERVER {
             get {
                 return ((string)(this["SERVER"]));
