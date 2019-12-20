@@ -1,29 +1,22 @@
 ﻿using Jeu_de_role.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using System.IO;
-using Newtonsoft.Json.Linq;
 
 namespace Jeu_de_role
 {
     public partial class Menu : Form
     {
         //Adresse du serveur
-        private string server = Properties.Settings.Default.SERVER.ToString();
+        private string server = Properties.Settings.Default.SERVER1.ToString();
         DataGridViewRow row;
 
         //Joueur
         private int IdUtilisateur = 0;
-
-        private Profil profil = new Profil();
+        private Profil profil;
 
         public Menu(int idUtilisateur)
         {
@@ -31,6 +24,7 @@ namespace Jeu_de_role
             IdUtilisateur = idUtilisateur;
             row = (DataGridViewRow)dgvParties.Rows[0].Clone();
             dgvParties.AllowUserToAddRows = false;
+            profil = new Profil(idUtilisateur);
         }
 
 
@@ -61,7 +55,7 @@ namespace Jeu_de_role
 
         private void AddRowToDgv(string titre, string description, string idPartie)
         {
-            
+
             DataGridViewRow rowClone = (DataGridViewRow)row.Clone();
             rowClone.Cells[0].Value = titre;
             rowClone.Cells[1].Value = description;
@@ -145,7 +139,7 @@ namespace Jeu_de_role
             foreach (DataGridViewRow dgvr in dgvParties.SelectedRows)
             {
                 string id = dgvr.Cells["ID"].Value.ToString();
-                
+
             }
         }
     }

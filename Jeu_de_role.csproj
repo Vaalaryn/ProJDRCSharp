@@ -65,6 +65,30 @@
     <Compile Include="AjoutPartie.Designer.cs">
       <DependentUpon>AjoutPartie.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChangeAvatar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeAvatar.Designer.cs">
+      <DependentUpon>ChangeAvatar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeMail.Designer.cs">
+      <DependentUpon>ChangeMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeMDP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeMDP.Designer.cs">
+      <DependentUpon>ChangeMDP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePseudo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePseudo.Designer.cs">
+      <DependentUpon>ChangePseudo.cs</DependentUpon>
+    </Compile>
     <Compile Include="déPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +170,18 @@
     <Compile Include="Requetes.cs" />
     <EmbeddedResource Include="AjoutPartie.resx">
       <DependentUpon>AjoutPartie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeAvatar.resx">
+      <DependentUpon>ChangeAvatar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeMail.resx">
+      <DependentUpon>ChangeMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeMDP.resx">
+      <DependentUpon>ChangeMDP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePseudo.resx">
+      <DependentUpon>ChangePseudo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>

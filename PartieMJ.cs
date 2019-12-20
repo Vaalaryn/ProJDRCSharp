@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +14,7 @@ namespace Jeu_de_role
 {
     public partial class PartieMJ : Form
     {
-        private string server = Properties.Settings.Default.SERVER.ToString();
+        private string server = Properties.Settings.Default.SERVER1.ToString();
         private string idPartie = "bEScFHceSkIgXs0R";
         private JObject jsonPartie = new JObject();
         private JArray jsonLog = new JArray();
