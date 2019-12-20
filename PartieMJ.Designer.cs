@@ -196,6 +196,7 @@
             this.infoPBtn.TabIndex = 6;
             this.infoPBtn.Text = "Info partie";
             this.infoPBtn.UseVisualStyleBackColor = true;
+            this.infoPBtn.Click += new System.EventHandler(this.infoPBtn_Click);
             // 
             // blocNotetxtbx
             // 

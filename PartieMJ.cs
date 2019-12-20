@@ -221,5 +221,10 @@ namespace Jeu_de_role
         }
         #endregion
 
+        private void infoPBtn_Click(object sender, EventArgs e)
+        {
+            InfosPartie info = new InfosPartie(idPartie);
+            info.Show();
+        }
     }
 }

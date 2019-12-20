@@ -38,10 +38,10 @@
             this.dgvTitre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblPartie = new System.Windows.Forms.Label();
-            this.listPartieDTG = new System.Windows.Forms.DataGridView();
             this.isMj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idJoueur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblPartie = new System.Windows.Forms.Label();
+            this.listPartieDTG = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.Watcher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPartieDTG)).BeginInit();
@@ -73,7 +73,7 @@
             this.userInfoBtn.Name = "userInfoBtn";
             this.userInfoBtn.Size = new System.Drawing.Size(262, 50);
             this.userInfoBtn.TabIndex = 2;
-            this.userInfoBtn.Text = "Information Joueur";
+            this.userInfoBtn.Text = "Information utilisateur";
             this.userInfoBtn.UseVisualStyleBackColor = true;
             this.userInfoBtn.Click += new System.EventHandler(this.userInfoBtn_Click);
             // 
@@ -147,6 +147,20 @@
             this.ID.ReadOnly = true;
             this.ID.Visible = false;
             // 
+            // isMj
+            // 
+            this.isMj.HeaderText = "isMj";
+            this.isMj.Name = "isMj";
+            this.isMj.ReadOnly = true;
+            this.isMj.Visible = false;
+            // 
+            // idJoueur
+            // 
+            this.idJoueur.HeaderText = "idJoueur";
+            this.idJoueur.Name = "idJoueur";
+            this.idJoueur.ReadOnly = true;
+            this.idJoueur.Visible = false;
+            // 
             // lblPartie
             // 
             this.lblPartie.AutoSize = true;
@@ -164,20 +178,6 @@
             this.listPartieDTG.Name = "listPartieDTG";
             this.listPartieDTG.Size = new System.Drawing.Size(262, 243);
             this.listPartieDTG.TabIndex = 5;
-            // 
-            // isMj
-            // 
-            this.isMj.HeaderText = "isMj";
-            this.isMj.Name = "isMj";
-            this.isMj.ReadOnly = true;
-            this.isMj.Visible = false;
-            // 
-            // idJoueur
-            // 
-            this.idJoueur.HeaderText = "idJoueur";
-            this.idJoueur.Name = "idJoueur";
-            this.idJoueur.ReadOnly = true;
-            this.idJoueur.Visible = false;
             // 
             // Menu
             // 
