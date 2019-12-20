@@ -1,4 +1,4 @@
-﻿using Jeu_de_role.Models;
+using Jeu_de_role.Models;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -112,7 +112,10 @@ namespace Jeu_de_role
                     Task.Run(() =>
                     {
                         Task<string> result = ImageProfil(mail, pseudo, mdp, ImageData);
-
+                        this.Invoke(new MethodInvoker(delegate
+                        {
+                            this.Close();
+                        }));
                     });
 
                 }
