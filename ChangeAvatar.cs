@@ -36,7 +36,7 @@ namespace Jeu_de_role
 
         public async Task<string> UpdateAvatar(int id, string mdp, byte[] imdData)
         {
-            string url = Properties.Settings.Default.SERVER1.ToString() + "/Utilisateur/Inscription";
+            string url = Properties.Settings.Default.SERVER.ToString() + "/Utilisateur/Inscription";
 
             HttpClient httpClient = new HttpClient();
             MultipartFormDataContent form = new MultipartFormDataContent();
