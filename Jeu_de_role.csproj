@@ -127,7 +127,6 @@
     <Compile Include="RejoindrePartie.Designer.cs">
       <DependentUpon>RejoindrePartie.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\AttributeModel.cs" />
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
