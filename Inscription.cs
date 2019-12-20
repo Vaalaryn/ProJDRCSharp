@@ -1,6 +1,5 @@
 ﻿using Jeu_de_role.Models;
-using MySql.Data.MySqlClient;
-using Newtonsoft.Json.Linq;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
