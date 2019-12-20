@@ -18,10 +18,11 @@ namespace Jeu_de_role
         private string idPartie = "";
         private short type = 1;
 
-        public Evenement(PartieMJ pmj, string idPartie)
+        public Evenement(PartieMJ pmj, string partie)
         {
             InitializeComponent();
             fenetre = pmj;
+            idPartie = partie;
         }
 
 
@@ -72,10 +73,11 @@ namespace Jeu_de_role
                 {
                     new AttributeModel("idPartie",idPartie),
                     new AttributeModel("type",type),
-                    new AttributeModel("idPartie",eventTxtBox.Text),
+                    new AttributeModel("message",eventTxtBox.Text),
                 });
                     this.Invoke(new MethodInvoker(delegate
                     {
+                        fenetre.RefreshLogs();
                         this.Close();
                     }));
                 });

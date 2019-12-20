@@ -28,103 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userPseudodgv = new System.Windows.Forms.DataGridView();
-            this.persoListdgv = new System.Windows.Forms.DataGridView();
-            this.modifPseudoUser = new System.Windows.Forms.Button();
-            this.pseudoUserIndication = new System.Windows.Forms.Label();
-            this.persoList = new System.Windows.Forms.Label();
-            this.modifMdpUser = new System.Windows.Forms.Button();
-            this.delPerso = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.userPseudodgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.persoListdgv)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mail_label = new System.Windows.Forms.Label();
+            this.pseudo_label = new System.Windows.Forms.Label();
+            this.mail_Click = new System.Windows.Forms.Button();
+            this.pseudo_Click = new System.Windows.Forms.Button();
+            this.mdp_Click = new System.Windows.Forms.Button();
+            this.avatar_Click = new System.Windows.Forms.Button();
+            this.pseudo_value = new System.Windows.Forms.Label();
+            this.mail_value = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // userPseudodgv
+            // pictureBox1
             // 
-            this.userPseudodgv.AllowUserToAddRows = false;
-            this.userPseudodgv.AllowUserToDeleteRows = false;
-            this.userPseudodgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.userPseudodgv.Location = new System.Drawing.Point(97, 12);
-            this.userPseudodgv.Name = "userPseudodgv";
-            this.userPseudodgv.Size = new System.Drawing.Size(240, 31);
-            this.userPseudodgv.TabIndex = 0;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(15, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(435, 160);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // persoListdgv
+            // mail_label
             // 
-            this.persoListdgv.AllowUserToAddRows = false;
-            this.persoListdgv.AllowUserToDeleteRows = false;
-            this.persoListdgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.persoListdgv.Location = new System.Drawing.Point(12, 231);
-            this.persoListdgv.Name = "persoListdgv";
-            this.persoListdgv.Size = new System.Drawing.Size(814, 207);
-            this.persoListdgv.TabIndex = 1;
+            this.mail_label.AutoSize = true;
+            this.mail_label.Location = new System.Drawing.Point(12, 272);
+            this.mail_label.Name = "mail_label";
+            this.mail_label.Size = new System.Drawing.Size(45, 17);
+            this.mail_label.TabIndex = 5;
+            this.mail_label.Text = "Mail : ";
             // 
-            // modifPseudoUser
+            // pseudo_label
             // 
-            this.modifPseudoUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifPseudoUser.Location = new System.Drawing.Point(343, 13);
-            this.modifPseudoUser.Name = "modifPseudoUser";
-            this.modifPseudoUser.Size = new System.Drawing.Size(86, 30);
-            this.modifPseudoUser.TabIndex = 2;
-            this.modifPseudoUser.Text = "Modifier";
-            this.modifPseudoUser.UseVisualStyleBackColor = true;
+            this.pseudo_label.AutoSize = true;
+            this.pseudo_label.Location = new System.Drawing.Point(12, 207);
+            this.pseudo_label.Name = "pseudo_label";
+            this.pseudo_label.Size = new System.Drawing.Size(68, 17);
+            this.pseudo_label.TabIndex = 6;
+            this.pseudo_label.Text = "Pseudo : ";
             // 
-            // pseudoUserIndication
+            // mail_Click
             // 
-            this.pseudoUserIndication.AutoSize = true;
-            this.pseudoUserIndication.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pseudoUserIndication.Location = new System.Drawing.Point(12, 17);
-            this.pseudoUserIndication.Name = "pseudoUserIndication";
-            this.pseudoUserIndication.Size = new System.Drawing.Size(79, 20);
-            this.pseudoUserIndication.TabIndex = 3;
-            this.pseudoUserIndication.Text = "Pseudo :";
+            this.mail_Click.Location = new System.Drawing.Point(15, 348);
+            this.mail_Click.Name = "mail_Click";
+            this.mail_Click.Size = new System.Drawing.Size(88, 50);
+            this.mail_Click.TabIndex = 7;
+            this.mail_Click.Text = "Changer Mail";
+            this.mail_Click.UseVisualStyleBackColor = true;
+            this.mail_Click.Click += new System.EventHandler(this.mail_Click_Click);
             // 
-            // persoList
+            // pseudo_Click
             // 
-            this.persoList.AutoSize = true;
-            this.persoList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.persoList.Location = new System.Drawing.Point(12, 198);
-            this.persoList.Name = "persoList";
-            this.persoList.Size = new System.Drawing.Size(167, 20);
-            this.persoList.TabIndex = 4;
-            this.persoList.Text = "Liste personnages :";
+            this.pseudo_Click.Location = new System.Drawing.Point(129, 348);
+            this.pseudo_Click.Name = "pseudo_Click";
+            this.pseudo_Click.Size = new System.Drawing.Size(88, 50);
+            this.pseudo_Click.TabIndex = 8;
+            this.pseudo_Click.Text = "Changer Pseudo";
+            this.pseudo_Click.UseVisualStyleBackColor = true;
+            this.pseudo_Click.Click += new System.EventHandler(this.pseudo_Click_Click);
             // 
-            // modifMdpUser
+            // mdp_Click
             // 
-            this.modifMdpUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifMdpUser.Location = new System.Drawing.Point(111, 58);
-            this.modifMdpUser.Name = "modifMdpUser";
-            this.modifMdpUser.Size = new System.Drawing.Size(210, 30);
-            this.modifMdpUser.TabIndex = 5;
-            this.modifMdpUser.Text = "Modifier mot de passe";
-            this.modifMdpUser.UseVisualStyleBackColor = true;
+            this.mdp_Click.Location = new System.Drawing.Point(243, 348);
+            this.mdp_Click.Name = "mdp_Click";
+            this.mdp_Click.Size = new System.Drawing.Size(88, 50);
+            this.mdp_Click.TabIndex = 9;
+            this.mdp_Click.Text = "Changer Mdp";
+            this.mdp_Click.UseVisualStyleBackColor = true;
+            this.mdp_Click.Click += new System.EventHandler(this.mdp_Click_Click);
             // 
-            // delPerso
+            // avatar_Click
             // 
-            this.delPerso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.delPerso.Location = new System.Drawing.Point(201, 193);
-            this.delPerso.Name = "delPerso";
-            this.delPerso.Size = new System.Drawing.Size(228, 30);
-            this.delPerso.TabIndex = 6;
-            this.delPerso.Text = "Supprimer un personnage";
-            this.delPerso.UseVisualStyleBackColor = true;
+            this.avatar_Click.Location = new System.Drawing.Point(357, 348);
+            this.avatar_Click.Name = "avatar_Click";
+            this.avatar_Click.Size = new System.Drawing.Size(88, 50);
+            this.avatar_Click.TabIndex = 10;
+            this.avatar_Click.Text = "Changer Avatar";
+            this.avatar_Click.UseVisualStyleBackColor = true;
+            this.avatar_Click.Click += new System.EventHandler(this.avatar_Click_Click);
+            // 
+            // pseudo_value
+            // 
+            this.pseudo_value.AutoSize = true;
+            this.pseudo_value.Location = new System.Drawing.Point(12, 224);
+            this.pseudo_value.Name = "pseudo_value";
+            this.pseudo_value.Size = new System.Drawing.Size(16, 17);
+            this.pseudo_value.TabIndex = 11;
+            this.pseudo_value.Text = "?";
+            // 
+            // mail_value
+            // 
+            this.mail_value.AutoSize = true;
+            this.mail_value.Location = new System.Drawing.Point(12, 289);
+            this.mail_value.Name = "mail_value";
+            this.mail_value.Size = new System.Drawing.Size(16, 17);
+            this.mail_value.TabIndex = 12;
+            this.mail_value.Text = "?";
             // 
             // Profil
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 450);
-            this.Controls.Add(this.delPerso);
-            this.Controls.Add(this.modifMdpUser);
-            this.Controls.Add(this.persoList);
-            this.Controls.Add(this.pseudoUserIndication);
-            this.Controls.Add(this.modifPseudoUser);
-            this.Controls.Add(this.persoListdgv);
-            this.Controls.Add(this.userPseudodgv);
+            this.ClientSize = new System.Drawing.Size(462, 410);
+            this.Controls.Add(this.mail_value);
+            this.Controls.Add(this.pseudo_value);
+            this.Controls.Add(this.avatar_Click);
+            this.Controls.Add(this.mdp_Click);
+            this.Controls.Add(this.pseudo_Click);
+            this.Controls.Add(this.mail_Click);
+            this.Controls.Add(this.pseudo_label);
+            this.Controls.Add(this.mail_label);
+            this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Profil";
             this.Text = "Profil";
-            ((System.ComponentModel.ISupportInitialize)(this.userPseudodgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.persoListdgv)).EndInit();
+            this.Load += new System.EventHandler(this.Profil_Load_1);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,12 +153,14 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView userPseudodgv;
-        private System.Windows.Forms.DataGridView persoListdgv;
-        private System.Windows.Forms.Button modifPseudoUser;
-        private System.Windows.Forms.Label pseudoUserIndication;
-        private System.Windows.Forms.Label persoList;
-        private System.Windows.Forms.Button modifMdpUser;
-        private System.Windows.Forms.Button delPerso;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label mail_label;
+        private System.Windows.Forms.Label pseudo_label;
+        private System.Windows.Forms.Button mail_Click;
+        private System.Windows.Forms.Button pseudo_Click;
+        private System.Windows.Forms.Button mdp_Click;
+        private System.Windows.Forms.Button avatar_Click;
+        private System.Windows.Forms.Label pseudo_value;
+        private System.Windows.Forms.Label mail_value;
     }
 }

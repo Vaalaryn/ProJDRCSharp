@@ -1,14 +1,9 @@
 ﻿using Jeu_de_role.Models;
-
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,7 +11,7 @@ namespace Jeu_de_role
 {
     public partial class Inscription : Form
     {
-        private string server = Properties.Settings.Default.SERVER.ToString();
+        private string server = Properties.Settings.Default.SERVER1.ToString();
 
         public byte[] bytes;
 
@@ -25,14 +20,14 @@ namespace Jeu_de_role
             InitializeComponent();
         }
 
-        private Image BytetoImage(byte[] ImageData)
+        public static Image BytetoImage(byte[] ImageData)
         {
             MemoryStream ms = new MemoryStream(ImageData);
             ms.Position = 0;
             return Image.FromStream(ms);
         }
 
-        private Byte[] ImagetoByte(string FileName)
+        public static Byte[] ImagetoByte(string FileName)
         {
             try
             {
@@ -50,7 +45,7 @@ namespace Jeu_de_role
             {
                 return new byte[0];
             }
-            
+
         }
 
         private bool Exist(string mail, string pseudo)
@@ -77,7 +72,7 @@ namespace Jeu_de_role
             }
         }
 
-        public async Task<string> ImageProfil(string mail, string pseudo, string mdp,byte[] imdData)
+        public async Task<string> ImageProfil(string mail, string pseudo, string mdp, byte[] imdData)
         {
             string url = server + "/Utilisateur/Inscription";
 
@@ -115,21 +110,12 @@ namespace Jeu_de_role
                 {
                     Task.Run(() =>
                     {
-                        Task<string> result = ImageProfil(mail, pseudo, mdp,ImageData);
-                        
-                    });
-                    
-                }
-                try
-                {
-                    testPictureBox.Image = BytetoImage(ImageData);
-                }
-                catch (Exception)
-                {
+                        Task<string> result = ImageProfil(mail, pseudo, mdp, ImageData);
 
-                    
+                    });
+
                 }
-               
+
             }
             else
             {
