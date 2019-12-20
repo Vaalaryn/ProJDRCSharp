@@ -33,8 +33,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Flurl, Version=2.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Flurl.2.8.2\lib\net40\Flurl.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl.Http, Version=2.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Flurl.Http.2.4.2\lib\net46\Flurl.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.EntityFramework, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,16 +59,185 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjoutPartie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjoutPartie.Designer.cs">
+      <DependentUpon>AjoutPartie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\getStatsPerso.cs" />
+    <Compile Include="ChangeAvatar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeAvatar.Designer.cs">
+      <DependentUpon>ChangeAvatar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeMail.Designer.cs">
+      <DependentUpon>ChangeMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeMDP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangeMDP.Designer.cs">
+      <DependentUpon>ChangeMDP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePseudo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePseudo.Designer.cs">
+      <DependentUpon>ChangePseudo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="déPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="déPopUp.Designer.cs">
+      <DependentUpon>déPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Evenement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Evenement.Designer.cs">
+      <DependentUpon>Evenement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\getFichePerso.cs" />
+    <Compile Include="FichePerso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FichePerso.Designer.cs">
+      <DependentUpon>FichePerso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreationPerso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreationPerso.Designer.cs">
+      <DependentUpon>CreationPerso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartiePerso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartiePerso.Designer.cs">
+      <DependentUpon>PartiePerso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RejoindrePartie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RejoindrePartie.Designer.cs">
+      <DependentUpon>RejoindrePartie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connexion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Connexion.Designer.cs">
       <DependentUpon>Connexion.cs</DependentUpon>
     </Compile>
+    <Compile Include="getInfoPartie.cs" />
+    <Compile Include="infosPartie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infosPartie.Designer.cs">
+      <DependentUpon>infosPartie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inscription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inscription.Designer.cs">
+      <DependentUpon>Inscription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AttributeModel.cs" />
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PartieModel.cs" />
+    <Compile Include="ModifInventaire.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifInventaire.Designer.cs">
+      <DependentUpon>ModifInventaire.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modifJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modifJ.Designer.cs">
+      <DependentUpon>modifJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartieMJ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartieMJ.Designer.cs">
+      <DependentUpon>PartieMJ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TraitementPersonnage.cs" />
+    <Compile Include="Profil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profil.Designer.cs">
+      <DependentUpon>Profil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Requetes.cs" />
+    <EmbeddedResource Include="AjoutPartie.resx">
+      <DependentUpon>AjoutPartie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeAvatar.resx">
+      <DependentUpon>ChangeAvatar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeMail.resx">
+      <DependentUpon>ChangeMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangeMDP.resx">
+      <DependentUpon>ChangeMDP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePseudo.resx">
+      <DependentUpon>ChangePseudo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Connexion.resx">
       <DependentUpon>Connexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infosPartie.resx">
+      <DependentUpon>infosPartie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="déPopUp.resx">
+      <DependentUpon>déPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Evenement.resx">
+      <DependentUpon>Evenement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FichePerso.resx">
+      <DependentUpon>FichePerso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreationPerso.resx">
+      <DependentUpon>CreationPerso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartiePerso.resx">
+      <DependentUpon>PartiePerso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RejoindrePartie.resx">
+      <DependentUpon>RejoindrePartie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inscription.resx">
+      <DependentUpon>Inscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifInventaire.resx">
+      <DependentUpon>ModifInventaire.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifJ.resx">
+      <DependentUpon>modifJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartieMJ.resx">
+      <DependentUpon>PartieMJ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profil.resx">
+      <DependentUpon>Profil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -66,6 +248,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +261,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BDD\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
