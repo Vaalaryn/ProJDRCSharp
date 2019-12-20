@@ -8,30 +8,52 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Jeu_de_role.Properties {
-    
-    
+namespace Jeu_de_role.Properties
+{
+
+
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.3.0.0")]
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase
+    {
+
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
-        
-        public static Settings Default {
-            get {
+
+        public static Settings Default
+        {
+            get
+            {
                 return defaultInstance;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://10.176.131.106:8080/api")]
-        public string SERVER {
-            get {
+        public string SERVER
+        {
+            get
+            {
                 return ((string)(this["SERVER"]));
             }
-            set {
+            set
+            {
                 this["SERVER"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:57407")]
+        public string SERVER2
+        {
+            get
+            {
+                return ((string)(this["SERVER2"]));
+            }
+            set
+            {
+                this["SERVER2"] = value;
             }
         }
     }

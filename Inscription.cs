@@ -1,5 +1,4 @@
-﻿using Jeu_de_role.Models;
-using Newtonsoft.Json.Linq;
+using Jeu_de_role.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -107,20 +106,39 @@ namespace Jeu_de_role
                 byte[] ImageData;
                 ImageData = ImagetoByte(linkTxt.Text);
 
-                if (!Exist(mail, pseudo))
+                if (!Exist(mail, pseudo) && IsValidEmail(mail))
                 {
                     Task.Run(() =>
                     {
                         Task<string> result = ImageProfil(mail, pseudo, mdp, ImageData);
-
+                        this.Invoke(new MethodInvoker(delegate
+                        {
+                            this.Close();
+                        }));
                     });
-
+                }
+                else
+                {
+                    MessageBox.Show("Pseudo ou mail déjà pris ou non valide");
                 }
 
             }
             else
             {
                 MessageBox.Show("Erreur, vérifier vos informations.");
+            }
+        }
+
+        public static bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
             }
         }
 
