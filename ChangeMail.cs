@@ -23,7 +23,7 @@ namespace Jeu_de_role
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (mdp.Text != "" && mail.Text != "")
+            if (mdp.Text != "" && mail.Text != "" && Inscription.IsValidEmail(mail.Text))
             {
                 Task.Run(() =>
                 {

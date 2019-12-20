@@ -41,9 +41,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 196);
+            this.button2.Location = new System.Drawing.Point(9, 159);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 23);
+            this.button2.Size = new System.Drawing.Size(92, 19);
             this.button2.TabIndex = 11;
             this.button2.Text = "Annuler";
             this.button2.UseVisualStyleBackColor = true;
@@ -51,9 +52,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(143, 196);
+            this.button1.Location = new System.Drawing.Point(107, 159);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 23);
+            this.button1.Size = new System.Drawing.Size(89, 19);
             this.button1.TabIndex = 10;
             this.button1.Text = "Valider";
             this.button1.UseVisualStyleBackColor = true;
@@ -62,31 +64,36 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 9);
+            this.label2.Location = new System.Drawing.Point(7, 7);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 17);
+            this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Mot de passe :";
             // 
             // mdp_value
             // 
-            this.mdp_value.Location = new System.Drawing.Point(12, 29);
+            this.mdp_value.Location = new System.Drawing.Point(9, 24);
+            this.mdp_value.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mdp_value.Name = "mdp_value";
-            this.mdp_value.Size = new System.Drawing.Size(250, 22);
+            this.mdp_value.PasswordChar = '*';
+            this.mdp_value.Size = new System.Drawing.Size(188, 20);
             this.mdp_value.TabIndex = 7;
             // 
             // linkTxt
             // 
-            this.linkTxt.Location = new System.Drawing.Point(12, 99);
+            this.linkTxt.Location = new System.Drawing.Point(9, 80);
+            this.linkTxt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.linkTxt.Name = "linkTxt";
-            this.linkTxt.Size = new System.Drawing.Size(250, 22);
+            this.linkTxt.Size = new System.Drawing.Size(188, 20);
             this.linkTxt.TabIndex = 17;
             // 
             // rechercheImgButton
             // 
-            this.rechercheImgButton.Location = new System.Drawing.Point(152, 127);
+            this.rechercheImgButton.Location = new System.Drawing.Point(114, 103);
+            this.rechercheImgButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rechercheImgButton.Name = "rechercheImgButton";
-            this.rechercheImgButton.Size = new System.Drawing.Size(110, 32);
+            this.rechercheImgButton.Size = new System.Drawing.Size(82, 26);
             this.rechercheImgButton.TabIndex = 16;
             this.rechercheImgButton.Text = "Parcourir";
             this.rechercheImgButton.UseVisualStyleBackColor = true;
@@ -94,9 +101,10 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(280, 29);
+            this.pictureBox.Location = new System.Drawing.Point(210, 24);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(159, 173);
+            this.pictureBox.Size = new System.Drawing.Size(119, 141);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 15;
             this.pictureBox.TabStop = false;
@@ -104,17 +112,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 79);
+            this.label1.Location = new System.Drawing.Point(9, 64);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 17);
+            this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 18;
             this.label1.Text = "Avatar :";
             // 
             // ChangeAvatar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 227);
+            this.ClientSize = new System.Drawing.Size(338, 184);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkTxt);
             this.Controls.Add(this.rechercheImgButton);
@@ -123,6 +132,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.mdp_value);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ChangeAvatar";
             this.Text = "Modifier avatar";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();

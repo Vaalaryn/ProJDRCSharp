@@ -26,7 +26,7 @@ namespace Jeu_de_role
         {
             Task.Run(() =>
             {
-                Task<string> result = Requetes.GetInfo(Properties.Settings.Default.SERVER1.ToString() + "/Utilisateur/GetById/" + id);
+                Task<string> result = Requetes.GetInfo(Properties.Settings.Default.SERVER.ToString() + "/Utilisateur/GetById/" + id);
                 JObject json = JObject.Parse(result.Result);
                 this.Invoke(new MethodInvoker(delegate
                 {
@@ -57,7 +57,7 @@ namespace Jeu_de_role
 
         public async Task<string> UpdateAvatar(string mdp, byte[] imdData)
         {
-            string url = Properties.Settings.Default.SERVER1.ToString() + "/Utilisateur/Inscription";
+            string url = Properties.Settings.Default.SERVER.ToString() + "/Utilisateur/Inscription";
 
             HttpClient httpClient = new HttpClient();
             MultipartFormDataContent form = new MultipartFormDataContent();
