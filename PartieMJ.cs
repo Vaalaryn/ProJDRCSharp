@@ -14,16 +14,19 @@ namespace Jeu_de_role
 {
     public partial class PartieMJ : Form
     {
-        private string server = Properties.Settings.Default.SERVER1.ToString();
-        private string idPartie = "bEScFHceSkIgXs0R";
+        private string server = Properties.Settings.Default.SERVER.ToString();
+        private string idPartie = "";
         private JObject jsonPartie = new JObject();
         private JArray jsonLog = new JArray();
         private DataGridViewRow rowClone;
-        public PartieMJ()
+        public PartieMJ(string partie)
         {
             InitializeComponent();
             rowClone = (DataGridViewRow)jListDtg.Rows[0].Clone();
             jListDtg.AllowUserToAddRows = false;
+            idPartie = partie;
+            InitJson();
+
         }
 
         public void InitJson()
@@ -54,15 +57,8 @@ namespace Jeu_de_role
         public void RefreshListePerso()
         {
             jListDtg.Rows.Clear();
-            JArray listeJoueur;
-            try
-            {
-                listeJoueur = (JArray)jsonPartie["joueur"];
-            }
-            catch
-            {
-                listeJoueur = new JArray();
-            }
+            JArray listeJoueur = (JArray)jsonPartie["joueur"];
+
             foreach (JObject joueurInfo in listeJoueur)
             {
                 JArray perso = JArray.Parse(joueurInfo["personnage"].ToString());
@@ -84,12 +80,12 @@ namespace Jeu_de_role
         /* ****************** Logs *********************************/
         public void RefreshLogs()
         {
+            logTxtbx.Text = "";
             if (jsonLog.Count > 0)
                 foreach (JObject json in jsonLog)
                 {
                     logTxtbx.Text += json["MESSAGE"].ToString() + "\r\n";
                 }
-
         }
         /* ****************** Logs *********************************/
 
@@ -128,10 +124,19 @@ namespace Jeu_de_role
         /// <param name="e"></param>
         private void WatcherLogs_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
-            if (e.FullPath.Split('\\').Last() == idPartie + ".json")
+            try
             {
-                System.Diagnostics.Debug.WriteLine(e.FullPath);
-                logTxtbx.Text = "";
+
+                if (e.FullPath.Split('\\').Last() == idPartie + ".json")
+                {
+                    logTxtbx.Text = "";
+                    System.Diagnostics.Debug.WriteLine(e.FullPath);
+                    jsonLog = JArray.Parse(File.ReadAllText(e.FullPath));
+                    RefreshLogs();
+                }
+            }
+            catch
+            {
                 RefreshLogs();
             }
 
@@ -139,12 +144,21 @@ namespace Jeu_de_role
 
         private void WatcherPartie_Changed(object sender, System.IO.FileSystemEventArgs e)
         {
-            if (e.FullPath.Split('\\').Last() == idPartie + ".json")
+            try
             {
-                System.Diagnostics.Debug.WriteLine(e.FullPath);
-                logTxtbx.Text = "";
-                RefreshListePerso();
+                if (e.FullPath.Split('\\').Last() == idPartie + ".json")
+                {
+                    System.Diagnostics.Debug.WriteLine(e.FullPath);
+                    jsonPartie = JObject.Parse(File.ReadAllText(e.FullPath));
+                    RefreshListePerso();
+                }
             }
+            catch (Exception)
+            {
+                RefreshListePerso();
+
+            }
+            
         }
 
         private void changeMJBtn_Click(object sender, EventArgs e)
