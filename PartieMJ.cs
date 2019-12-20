@@ -15,6 +15,7 @@ namespace Jeu_de_role
     public partial class PartieMJ : Form
     {
         private string server = Properties.Settings.Default.SERVER.ToString();
+        private int idPerso = 34;
         private string idPartie = "";
         private JObject jsonPartie = new JObject();
         private JArray jsonLog = new JArray();
@@ -26,7 +27,7 @@ namespace Jeu_de_role
             jListDtg.AllowUserToAddRows = false;
             idPartie = partie;
             InitJson();
-
+            
         }
 
         public void InitJson()
@@ -53,7 +54,7 @@ namespace Jeu_de_role
 
 
 
-        /* ****************** Liste des perso **********************/
+        #region liste des persos
         public void RefreshListePerso()
         {
             jListDtg.Rows.Clear();
@@ -75,9 +76,9 @@ namespace Jeu_de_role
             row.Cells[2].Value = idJoueur;
             jListDtg.Rows.Add(row);
         }
-        /* ****************** Liste des perso **********************/
+        #endregion
 
-        /* ****************** Logs *********************************/
+        #region Logs
         public void RefreshLogs()
         {
             logTxtbx.Text = "";
@@ -87,11 +88,9 @@ namespace Jeu_de_role
                     logTxtbx.Text += json["MESSAGE"].ToString() + "\r\n";
                 }
         }
-        /* ****************** Logs *********************************/
+        #endregion
 
-
-
-        //Evénements 
+        #region Event
         private void déBtn_Click(object sender, EventArgs e)
         {
             var déPopUp = new déPopUp();
@@ -100,10 +99,7 @@ namespace Jeu_de_role
 
         private void jListDtg_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Task.Run(() =>
-            {
-                Task<string> result = Requetes.GetInfo(server + "/Joueur/GetByPartie?idPartie=" + idPartie);
-            });
+            
         }
 
         private void modifJBtn_Click(object sender, EventArgs e)
@@ -168,16 +164,22 @@ namespace Jeu_de_role
 
         private void modifInventBtn_Click(object sender, EventArgs e)
         {
-            var modifInventaire = new ModifInventaire();
+            var modifInventaire = new ModifInventaire(idPerso);
             modifInventaire.Show(this);
         }
 
         private void modifInventBtn_Click_1(object sender, EventArgs e)
         {
 
-            ModifInventaire modif = new ModifInventaire();
+            ModifInventaire modif = new ModifInventaire(idPerso);
             modif.Show();
 
         }
+
+        private void PartieMJ_Load(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

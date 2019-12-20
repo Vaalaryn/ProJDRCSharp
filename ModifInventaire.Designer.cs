@@ -29,48 +29,52 @@
         private void InitializeComponent()
         {
             this.listJdtg = new System.Windows.Forms.DataGridView();
-            this.selectPLbl = new System.Windows.Forms.Label();
+            this.NomObjet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Attribut = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.listJdtg)).BeginInit();
             this.SuspendLayout();
             // 
             // listJdtg
             // 
             this.listJdtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.listJdtg.Location = new System.Drawing.Point(12, 46);
+            this.listJdtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NomObjet,
+            this.Attribut});
+            this.listJdtg.Location = new System.Drawing.Point(31, 24);
             this.listJdtg.Name = "listJdtg";
-            this.listJdtg.Size = new System.Drawing.Size(447, 311);
+            this.listJdtg.Size = new System.Drawing.Size(593, 318);
             this.listJdtg.TabIndex = 0;
             this.listJdtg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.listJdtg_CellContentClick);
             // 
-            // selectPLbl
+            // NomObjet
             // 
-            this.selectPLbl.AutoSize = true;
-            this.selectPLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectPLbl.Location = new System.Drawing.Point(12, 19);
-            this.selectPLbl.Name = "selectPLbl";
-            this.selectPLbl.Size = new System.Drawing.Size(288, 24);
-            this.selectPLbl.TabIndex = 1;
-            this.selectPLbl.Text = "Selectionner un personnage :";
+            this.NomObjet.HeaderText = "Nom Objet";
+            this.NomObjet.Name = "NomObjet";
+            this.NomObjet.ReadOnly = true;
+            // 
+            // Attribut
+            // 
+            this.Attribut.HeaderText = "Attribut";
+            this.Attribut.Name = "Attribut";
+            this.Attribut.ReadOnly = true;
             // 
             // ModifInventaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.selectPLbl);
             this.Controls.Add(this.listJdtg);
             this.Name = "ModifInventaire";
             this.Text = "ModifInventaire";
-            this.Load += new System.EventHandler(this.ModifInventaire_Load);
             ((System.ComponentModel.ISupportInitialize)(this.listJdtg)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView listJdtg;
-        private System.Windows.Forms.Label selectPLbl;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomObjet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Attribut;
     }
 }
