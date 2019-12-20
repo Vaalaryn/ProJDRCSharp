@@ -53,7 +53,7 @@ namespace Jeu_de_role.Properties
             }
             set
             {
-                this["SERVER2"] = value;
+                //this["SERVER2"] = value;
             }
         }
     }

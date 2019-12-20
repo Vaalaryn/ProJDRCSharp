@@ -11,7 +11,7 @@ namespace Jeu_de_role
     public partial class Menu : Form
     {
         //Adresse du serveur
-        private string server = Properties.Settings.Default.SERVER1.ToString();
+        private string server = Properties.Settings.Default.SERVER.ToString();
         DataGridViewRow row;
 
         //Joueur
