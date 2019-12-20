@@ -273,6 +273,7 @@
             this.Controls.Add(this.jListDtg);
             this.Name = "PartieMJ";
             this.Text = "PartieMJ";
+            this.Load += new System.EventHandler(this.PartieMJ_Load);
             ((System.ComponentModel.ISupportInitialize)(this.jListDtg)).EndInit();
             this.flpActionButton.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.WatcherPartie)).EndInit();

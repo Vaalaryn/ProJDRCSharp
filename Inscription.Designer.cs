@@ -43,9 +43,9 @@
             this.rechercheImgButton = new System.Windows.Forms.Button();
             this.rechercheImg = new System.DirectoryServices.DirectorySearcher();
             this.linkTxt = new System.Windows.Forms.TextBox();
-            this.testPictureBox = new System.Windows.Forms.PictureBox();
+            this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
             // mailTxt
@@ -53,7 +53,7 @@
             this.mailTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mailTxt.Location = new System.Drawing.Point(12, 109);
             this.mailTxt.Name = "mailTxt";
-            this.mailTxt.Size = new System.Drawing.Size(392, 30);
+            this.mailTxt.Size = new System.Drawing.Size(415, 30);
             this.mailTxt.TabIndex = 0;
             // 
             // pseudoTxt
@@ -61,7 +61,7 @@
             this.pseudoTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pseudoTxt.Location = new System.Drawing.Point(12, 188);
             this.pseudoTxt.Name = "pseudoTxt";
-            this.pseudoTxt.Size = new System.Drawing.Size(392, 30);
+            this.pseudoTxt.Size = new System.Drawing.Size(415, 30);
             this.pseudoTxt.TabIndex = 1;
             // 
             // mdpTxt
@@ -70,7 +70,7 @@
             this.mdpTxt.Location = new System.Drawing.Point(12, 263);
             this.mdpTxt.Name = "mdpTxt";
             this.mdpTxt.PasswordChar = '*';
-            this.mdpTxt.Size = new System.Drawing.Size(392, 30);
+            this.mdpTxt.Size = new System.Drawing.Size(415, 30);
             this.mdpTxt.TabIndex = 2;
             // 
             // confirmMdpTxt
@@ -79,7 +79,7 @@
             this.confirmMdpTxt.Location = new System.Drawing.Point(12, 341);
             this.confirmMdpTxt.Name = "confirmMdpTxt";
             this.confirmMdpTxt.PasswordChar = '*';
-            this.confirmMdpTxt.Size = new System.Drawing.Size(392, 30);
+            this.confirmMdpTxt.Size = new System.Drawing.Size(415, 30);
             this.confirmMdpTxt.TabIndex = 3;
             // 
             // mailLabel
@@ -135,9 +135,9 @@
             // confirmerButton
             // 
             this.confirmerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmerButton.Location = new System.Drawing.Point(121, 522);
+            this.confirmerButton.Location = new System.Drawing.Point(12, 522);
             this.confirmerButton.Name = "confirmerButton";
-            this.confirmerButton.Size = new System.Drawing.Size(166, 41);
+            this.confirmerButton.Size = new System.Drawing.Size(415, 41);
             this.confirmerButton.TabIndex = 10;
             this.confirmerButton.Text = "Confirmer";
             this.confirmerButton.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@
             // 
             this.inscriptionLabel.AutoSize = true;
             this.inscriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inscriptionLabel.Location = new System.Drawing.Point(114, 19);
+            this.inscriptionLabel.Location = new System.Drawing.Point(139, 9);
             this.inscriptionLabel.Name = "inscriptionLabel";
             this.inscriptionLabel.Size = new System.Drawing.Size(165, 38);
             this.inscriptionLabel.TabIndex = 11;
@@ -155,10 +155,10 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.Location = new System.Drawing.Point(304, 391);
+            this.pictureBox.Location = new System.Drawing.Point(293, 390);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(100, 74);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox.Size = new System.Drawing.Size(134, 116);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 12;
             this.pictureBox.TabStop = false;
             // 
@@ -185,21 +185,16 @@
             this.linkTxt.Size = new System.Drawing.Size(189, 22);
             this.linkTxt.TabIndex = 14;
             // 
-            // testPictureBox
+            // fileSystemWatcher1
             // 
-            this.testPictureBox.Location = new System.Drawing.Point(53, 569);
-            this.testPictureBox.Name = "testPictureBox";
-            this.testPictureBox.Size = new System.Drawing.Size(341, 98);
-            this.testPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.testPictureBox.TabIndex = 15;
-            this.testPictureBox.TabStop = false;
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+            this.fileSystemWatcher1.SynchronizingObject = this;
             // 
             // Inscription
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 679);
-            this.Controls.Add(this.testPictureBox);
+            this.ClientSize = new System.Drawing.Size(439, 579);
             this.Controls.Add(this.linkTxt);
             this.Controls.Add(this.rechercheImgButton);
             this.Controls.Add(this.pictureBox);
@@ -217,7 +212,7 @@
             this.Name = "Inscription";
             this.Text = "Inscription";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.testPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,6 +235,6 @@
         private System.Windows.Forms.Button rechercheImgButton;
         private System.DirectoryServices.DirectorySearcher rechercheImg;
         private System.Windows.Forms.TextBox linkTxt;
-        private System.Windows.Forms.PictureBox testPictureBox;
+        private System.IO.FileSystemWatcher fileSystemWatcher1;
     }
 }
