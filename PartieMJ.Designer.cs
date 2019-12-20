@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.jListDtg = new System.Windows.Forms.DataGridView();
             this.nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,9 +46,9 @@
             this.listeJLbl = new System.Windows.Forms.Label();
             this.logLbl = new System.Windows.Forms.Label();
             this.blocNoteLbl = new System.Windows.Forms.Label();
-            this.logTxtbx = new System.Windows.Forms.TextBox();
             this.WatcherPartie = new System.IO.FileSystemWatcher();
             this.WatcherLogs = new System.IO.FileSystemWatcher();
+            this.logTxtbx = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.jListDtg)).BeginInit();
             this.flpActionButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WatcherPartie)).BeginInit();
@@ -62,14 +62,14 @@
             this.jListDtg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.jListDtg.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.jListDtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jListDtg.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.jListDtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.jListDtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nom,
@@ -81,9 +81,9 @@
             this.jListDtg.ReadOnly = true;
             this.jListDtg.RowHeadersVisible = false;
             this.jListDtg.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.jListDtg.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.jListDtg.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.jListDtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.jListDtg.Size = new System.Drawing.Size(374, 146);
             this.jListDtg.TabIndex = 0;
@@ -235,15 +235,6 @@
             this.blocNoteLbl.TabIndex = 6;
             this.blocNoteLbl.Text = "Bloc note :";
             // 
-            // logTxtbx
-            // 
-            this.logTxtbx.Location = new System.Drawing.Point(12, 208);
-            this.logTxtbx.Multiline = true;
-            this.logTxtbx.Name = "logTxtbx";
-            this.logTxtbx.ReadOnly = true;
-            this.logTxtbx.Size = new System.Drawing.Size(370, 286);
-            this.logTxtbx.TabIndex = 7;
-            // 
             // WatcherPartie
             // 
             this.WatcherPartie.EnableRaisingEvents = true;
@@ -257,6 +248,15 @@
             this.WatcherLogs.Path = "\\\\10.176.131.132\\Users\\Elise\\Documents\\Watcher\\Logs";
             this.WatcherLogs.SynchronizingObject = this;
             this.WatcherLogs.Changed += new System.IO.FileSystemEventHandler(this.WatcherLogs_Changed);
+            // 
+            // logTxtbx
+            // 
+            this.logTxtbx.Location = new System.Drawing.Point(12, 208);
+            this.logTxtbx.Name = "logTxtbx";
+            this.logTxtbx.ReadOnly = true;
+            this.logTxtbx.Size = new System.Drawing.Size(374, 288);
+            this.logTxtbx.TabIndex = 7;
+            this.logTxtbx.Text = "";
             // 
             // PartieMJ
             // 
@@ -296,11 +296,11 @@
         private System.Windows.Forms.Label listeJLbl;
         private System.Windows.Forms.Label logLbl;
         private System.Windows.Forms.Label blocNoteLbl;
-        private System.Windows.Forms.TextBox logTxtbx;
         private System.IO.FileSystemWatcher WatcherPartie;
         private System.IO.FileSystemWatcher WatcherLogs;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.RichTextBox logTxtbx;
     }
 }
