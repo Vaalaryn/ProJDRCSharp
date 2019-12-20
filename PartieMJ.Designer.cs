@@ -46,9 +46,9 @@
             this.listeJLbl = new System.Windows.Forms.Label();
             this.logLbl = new System.Windows.Forms.Label();
             this.blocNoteLbl = new System.Windows.Forms.Label();
-            this.logTxtbx = new System.Windows.Forms.TextBox();
             this.WatcherPartie = new System.IO.FileSystemWatcher();
             this.WatcherLogs = new System.IO.FileSystemWatcher();
+            this.logTxtbx = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.jListDtg)).BeginInit();
             this.flpActionButton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.WatcherPartie)).BeginInit();
@@ -235,15 +235,6 @@
             this.blocNoteLbl.TabIndex = 6;
             this.blocNoteLbl.Text = "Bloc note :";
             // 
-            // logTxtbx
-            // 
-            this.logTxtbx.Location = new System.Drawing.Point(12, 208);
-            this.logTxtbx.Multiline = true;
-            this.logTxtbx.Name = "logTxtbx";
-            this.logTxtbx.ReadOnly = true;
-            this.logTxtbx.Size = new System.Drawing.Size(370, 286);
-            this.logTxtbx.TabIndex = 7;
-            // 
             // WatcherPartie
             // 
             this.WatcherPartie.EnableRaisingEvents = true;
@@ -257,6 +248,15 @@
             this.WatcherLogs.Path = "\\\\10.176.131.132\\Users\\Elise\\Documents\\Watcher\\Logs";
             this.WatcherLogs.SynchronizingObject = this;
             this.WatcherLogs.Changed += new System.IO.FileSystemEventHandler(this.WatcherLogs_Changed);
+            // 
+            // logTxtbx
+            // 
+            this.logTxtbx.Location = new System.Drawing.Point(12, 208);
+            this.logTxtbx.Name = "logTxtbx";
+            this.logTxtbx.ReadOnly = true;
+            this.logTxtbx.Size = new System.Drawing.Size(374, 288);
+            this.logTxtbx.TabIndex = 7;
+            this.logTxtbx.Text = "";
             // 
             // PartieMJ
             // 
@@ -297,11 +297,11 @@
         private System.Windows.Forms.Label listeJLbl;
         private System.Windows.Forms.Label logLbl;
         private System.Windows.Forms.Label blocNoteLbl;
-        private System.Windows.Forms.TextBox logTxtbx;
         private System.IO.FileSystemWatcher WatcherPartie;
         private System.IO.FileSystemWatcher WatcherLogs;
         private System.Windows.Forms.DataGridViewTextBoxColumn nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn prenom;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.RichTextBox logTxtbx;
     }
 }

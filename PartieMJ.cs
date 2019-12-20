@@ -82,10 +82,23 @@ namespace Jeu_de_role
         public void RefreshLogs()
         {
             logTxtbx.Text = "";
+            int i = 0;
             if (jsonLog.Count > 0)
                 foreach (JObject json in jsonLog)
                 {
-                    logTxtbx.Text += json["MESSAGE"].ToString() + "\r\n";
+                    int type = Convert.ToInt32(json["TYPE"].ToString());
+                    logTxtbx.AppendText("[" + Convert.ToDateTime(json["DATE_ENVOI"].ToString()).ToShortTimeString() + "]" + " : " + json["MESSAGE"].ToString() + "\r\n");
+                    logTxtbx.SelectionStart = logTxtbx.GetFirstCharIndexFromLine(i);
+                    logTxtbx.SelectionLength = logTxtbx.Lines[i].Length;
+                    if (type == 1)
+                        logTxtbx.SelectionColor = System.Drawing.Color.Green;
+                    else if (type == 2)
+                        logTxtbx.SelectionColor = System.Drawing.Color.Red;
+                    else if (type == 3)
+                        logTxtbx.SelectionColor = System.Drawing.Color.Purple;
+                    else if (type == 4)
+                        logTxtbx.SelectionColor = System.Drawing.Color.Blue;
+                    i++;
                 }
         }
         #endregion
@@ -154,7 +167,7 @@ namespace Jeu_de_role
                 RefreshListePerso();
 
             }
-            
+
         }
 
         private void changeMJBtn_Click(object sender, EventArgs e)
