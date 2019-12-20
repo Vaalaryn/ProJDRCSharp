@@ -19,6 +19,9 @@ namespace Jeu_de_role
         private JObject jsonPartie = new JObject();
         private JArray jsonLog = new JArray();
         private DataGridViewRow rowClone;
+        private int idPersoSelected = 0;
+
+
         public PartieMJ(string partie)
         {
             InitializeComponent();
@@ -121,8 +124,15 @@ namespace Jeu_de_role
 
         private void modifJBtn_Click(object sender, EventArgs e)
         {
-            var modifJ = new modifJ();
-            modifJ.Show(this);
+            if(idPersoSelected > 0)
+            {
+                var modifJ = new modifJ(idPersoSelected);
+                modifJ.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un personnage svp.");
+            }
         }
 
         private void eventBtn_Click(object sender, EventArgs e)
@@ -191,6 +201,21 @@ namespace Jeu_de_role
             ModifInventaire modif = new ModifInventaire();
             modif.Show();
 
+        }
+
+        private void jListDtg_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow dgvr in jListDtg.SelectedRows)
+            {
+                try
+                {
+                    idPersoSelected = Convert.ToInt32(dgvr.Cells["ID"].Value.ToString());
+                }
+                catch
+                {
+                    idPersoSelected = 0;
+                }
+            }
         }
     }
 }
