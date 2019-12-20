@@ -36,7 +36,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "CLASSE :"+item["DESIGNATION"].ToString();
+                        mydata = item["DESIGNATION"].ToString();
                     }
 
 
@@ -47,15 +47,19 @@ namespace Jeu_de_role.Classes
             }
             if (mytst == 1)
             {
-                mydata = "NOM :" + jsonLinq["NOM"].ToString();
+                mydata = jsonLinq["NOM"].ToString();
             }
 
             if (mytst == 2)
             {
-                mydata = "PRENOM :" + jsonLinq["PRENOM"].ToString();
+                mydata =  jsonLinq["PRENOM"].ToString();
             }
 
-            
+            if (mytst == 20)
+            {
+                mydata = jsonLinq["NIVEAU"].ToString();
+            }
+
 
             if (mytst == 14)
             {
@@ -69,7 +73,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "VIE :" + jsonLinq["VIE"].ToString() + " / " + item["MAX_VIE"].ToString();
+                        mydata =  jsonLinq["VIE"].ToString() + " / " + item["MAX_VIE"].ToString();
                     }
 
 
@@ -84,7 +88,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "MANA :" + jsonLinq["MANA"].ToString() + " / " + item["MAX_MANA"].ToString();
+                        mydata = jsonLinq["MANA"].ToString() + " / " + item["MAX_MANA"].ToString();
                     }
 
 
@@ -94,12 +98,12 @@ namespace Jeu_de_role.Classes
 
             if (mytst == 7)
             {
-                mydata = "EXPERIENCE :" + jsonLinq["EXPERIENCE"].ToString();
+                mydata =  jsonLinq["EXPERIENCE"].ToString();
             }
 
             if (mytst == 8)
             {
-                mydata = "NIVEAU :" + jsonLinq["NIVEAU"].ToString();
+                mydata =  jsonLinq["NIVEAU"].ToString();
             }
 
 
@@ -109,7 +113,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "PUISSANCE :" + item["PUISSANCE"].ToString();
+                        mydata =  item["PUISSANCE"].ToString();
                     }
 
 
@@ -123,7 +127,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "MAGIE :" + item["MAGIE"].ToString();
+                        mydata =  item["MAGIE"].ToString();
                     }
 
 
@@ -137,7 +141,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "DEXTERITE :" + item["DEXTERITE"].ToString();
+                        mydata = item["DEXTERITE"].ToString();
                     }
 
 
@@ -151,7 +155,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "OBSERVATION :" + item["OBSERVATION"].ToString();
+                        mydata =  item["OBSERVATION"].ToString();
                     }
 
 
@@ -165,7 +169,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "INTELLIGENCE :" + item["INTELLIGENCE"].ToString();
+                        mydata =  item["INTELLIGENCE"].ToString();
                     }
 
                 }
@@ -178,7 +182,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "CHANCE :" + item["CHANCE"].ToString();
+                        mydata =  item["CHANCE"].ToString();
                     }
 
 
@@ -192,7 +196,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "CHARISME :" + item["CHARISME"].ToString();
+                        mydata = item["CHARISME"].ToString();
                     }
 
 
@@ -206,7 +210,7 @@ namespace Jeu_de_role.Classes
                 {
                     if (item["ID_CLASSE"].ToString() == jsonLinq["ID_CLASSE"].ToString())
                     {
-                        mydata = "DESCRIPTION CLASSE:" + item["DESCRIPTION"].ToString();
+                        mydata =  item["DESCRIPTION"].ToString();
                     }
 
 

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtIdGame = new System.Windows.Forms.TextBox();
             this.CreateGameBtn = new System.Windows.Forms.Button();
             this.userInfoBtn = new System.Windows.Forms.Button();
@@ -40,6 +40,8 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPartie = new System.Windows.Forms.Label();
             this.listPartieDTG = new System.Windows.Forms.DataGridView();
+            this.isMj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idJoueur = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Watcher)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvParties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listPartieDTG)).BeginInit();
@@ -100,19 +102,21 @@
             this.dgvParties.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dgvParties.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvParties.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvParties.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvParties.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvParties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvParties.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTitre,
             this.dgvDescription,
-            this.ID});
+            this.ID,
+            this.isMj,
+            this.idJoueur});
             this.dgvParties.Location = new System.Drawing.Point(12, 139);
             this.dgvParties.MultiSelect = false;
             this.dgvParties.Name = "dgvParties";
@@ -161,6 +165,20 @@
             this.listPartieDTG.Size = new System.Drawing.Size(262, 243);
             this.listPartieDTG.TabIndex = 5;
             // 
+            // isMj
+            // 
+            this.isMj.HeaderText = "isMj";
+            this.isMj.Name = "isMj";
+            this.isMj.ReadOnly = true;
+            this.isMj.Visible = false;
+            // 
+            // idJoueur
+            // 
+            this.idJoueur.HeaderText = "idJoueur";
+            this.idJoueur.Name = "idJoueur";
+            this.idJoueur.ReadOnly = true;
+            this.idJoueur.Visible = false;
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,5 +215,7 @@
         private System.Windows.Forms.Label lblPartie;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridView listPartieDTG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isMj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idJoueur;
     }
 }

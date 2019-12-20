@@ -17,19 +17,22 @@ namespace Jeu_de_role
 {
     public partial class PartiePerso : Form
     {
-        
-        public static string idPartie = "ZJw0mbSIEzmoBQsp";
-        public static int id_Joueur = 50;
+
+        public string idPartie = "";
+        public int id_Joueur = 0;
         public JObject jsonPartie;
-        public PartiePerso()
+        public JArray jsonLogs;
+        public PartiePerso(string idPartie, int idJoueur)
         {
             InitializeComponent();
-
+            this.idPartie = idPartie;
+            this.id_Joueur = idJoueur;
+            string textLog = File.ReadAllText(@"\\10.176.131.132\Users\Elise\Documents\Watcher\Logs\" + idPartie + ".json");
             jsonPartie = JObject.Parse(File.ReadAllText("//10.176.131.132/Users/Elise/Documents/Watcher/Parties/" + idPartie + ".json"));
-            //const string V = "{ 'ID_PARTIE':'mgD6nsd5IN85IlRO','TITRE':'Test des fichier','DESCRIPTION_PARTIE':'Ok','image':[],'joueur':[{'utilisateur':{'ID_UTIL':1,'MAIL':'tata','PSEUDO':'toto','AVATAR':'MTIzNA=='},'personnage':[],'ID_JOUEUR':15,'ID_UTIL':1,'ID_PARTIE':'mgD6nsd5IN85IlRO','IS_MJ':true}]}";
-            //json = V;
-
-
+            if (!String.IsNullOrEmpty(textLog))
+                jsonLogs = JArray.Parse(textLog);
+            if (jsonLogs.Count > 0)
+                RefreshLogs();
 
             setLabels();
             System.Diagnostics.Debug.WriteLine(getPersonnage(jsonPartie["joueur"].ToString()));
@@ -51,7 +54,7 @@ namespace Jeu_de_role
 
                 foreach (JObject item1 in pars1)
                 {
-                   
+
                     if ((int)item1["ID_JOUEUR"] == id_Joueur)
                     {
                         mydata = item1.ToString();
@@ -66,24 +69,33 @@ namespace Jeu_de_role
         private void setLabels()
         {
             string tst = jsonPartie["joueur"].ToString();
-            label1.Text = getStatsPerso.getData(getPersonnage(tst), 1);
-            label2.Text = getStatsPerso.getData(getPersonnage(tst), 2);
-            label3.Text = getStatsPerso.getData(getPersonnage(tst), 3);
-            label4.Text = getStatsPerso.getData(getPersonnage(tst), 4);
-            label5.Text = getStatsPerso.getData(getPersonnage(tst), 5);
-            label6.Text = getStatsPerso.getData(getPersonnage(tst), 6);
-            label7.Text = getStatsPerso.getData(getPersonnage(tst), 7);
-            label8.Text = getStatsPerso.getData(getPersonnage(tst), 8);
-            label9.Text = getStatsPerso.getData(getPersonnage(tst), 9);
-            label10.Text = getStatsPerso.getData(getPersonnage(tst), 10);
-            label11.Text = getStatsPerso.getData(getPersonnage(tst), 11);
-            label12.Text = getStatsPerso.getData(getPersonnage(tst), 12);
-            label13.Text = getStatsPerso.getData(getPersonnage(tst), 13);
-            textBox1.Text = getStatsPerso.getData(getPersonnage(tst), 14);
-            textBox2.Text = getStatsPerso.getData(getPersonnage(tst), 15);
+            txtNom.Text = getStatsPerso.getData(getPersonnage(tst), 1);
+            txtPrenom.Text = getStatsPerso.getData(getPersonnage(tst), 2);
+            txtVie.Text = getStatsPerso.getData(getPersonnage(tst), 3);
+            txtMana.Text = getStatsPerso.getData(getPersonnage(tst), 4);
+            txtPuissance.Text = getStatsPerso.getData(getPersonnage(tst), 5);
+            txtMagie.Text = getStatsPerso.getData(getPersonnage(tst), 6);
+            txtDexterite.Text = getStatsPerso.getData(getPersonnage(tst), 7);
+            txtObservation.Text = getStatsPerso.getData(getPersonnage(tst), 8);
+            txtIntelligence.Text = getStatsPerso.getData(getPersonnage(tst), 9);
+            txtChance.Text = getStatsPerso.getData(getPersonnage(tst), 10);
+            txtCharisme.Text = getStatsPerso.getData(getPersonnage(tst), 11);
+            txtClasse.Text = getStatsPerso.getData(getPersonnage(tst), 12);
+            
+            txtDescription.Text = getStatsPerso.getData(getPersonnage(tst), 14);
+            txtBlocnote.Text = getStatsPerso.getData(getPersonnage(tst), 15);
+            txtNiveau.Text = getStatsPerso.getData(getPersonnage(tst), 20);
         }
 
-        private void fileSystemWatcher_Changed(object sender, System.IO.FileSystemEventArgs e)
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string tst = jsonPartie["joueur"].ToString();
+            getStatsPerso.saveBN(txtBlocnote.Text, getPersonnage(tst));
+        }
+
+        private void WatcherPartie_Changed(object sender, FileSystemEventArgs e)
         {
             if (e.FullPath.Split('\\').Last() == idPartie + ".json")
             {
@@ -92,10 +104,46 @@ namespace Jeu_de_role
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void RefreshLogs()
         {
-            string tst = jsonPartie["joueur"].ToString();
-            getStatsPerso.saveBN(textBox2.Text, getPersonnage(tst));
+            txtLogs.Text = "";
+            int i = 0;
+            if (jsonLogs.Count > 0)
+                foreach (JObject json in jsonLogs)
+                {
+                    int type = Convert.ToInt32(json["TYPE"].ToString());
+                    txtLogs.AppendText("[" + Convert.ToDateTime(json["DATE_ENVOI"].ToString()).ToShortTimeString() + "]" + " : " + json["MESSAGE"].ToString() + "\r\n");
+                    txtLogs.SelectionStart = txtLogs.GetFirstCharIndexFromLine(i);
+                    txtLogs.SelectionLength = txtLogs.Lines[i].Length;
+                    if (type == 1)
+                        txtLogs.SelectionColor = System.Drawing.Color.Green;
+                    else if (type == 2)
+                        txtLogs.SelectionColor = System.Drawing.Color.Red;
+                    else if (type == 3)
+                        txtLogs.SelectionColor = System.Drawing.Color.Purple;
+                    else if (type == 4)
+                        txtLogs.SelectionColor = System.Drawing.Color.Blue;
+                    i++;
+                }
+        }
+
+        private void WatcherLogs_Changed(object sender, FileSystemEventArgs e)
+        {
+            try
+            {
+
+                if (e.FullPath.Split('\\').Last() == idPartie + ".json")
+                {
+                    txtLogs.Text = "";
+                    System.Diagnostics.Debug.WriteLine(e.FullPath);
+                    jsonLogs = JArray.Parse(File.ReadAllText(e.FullPath));
+                    RefreshLogs();
+                }
+            }
+            catch
+            {
+                RefreshLogs();
+            }
         }
     }
 }

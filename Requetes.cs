@@ -98,7 +98,9 @@ namespace Jeu_de_role
                 {
                     ID_PARTIE = jo["ID_PARTIE"].ToString(),
                     DESCRIPTION_PARTIE = jo["DESCRIPTION_PARTIE"].ToString(),
-                    TITRE = jo["TITRE"].ToString()
+                    TITRE = jo["TITRE"].ToString(),
+                    ISMJ = Convert.ToBoolean(jo["IS_MJ"].ToString()),
+                    ID_JOUEUR = Convert.ToInt32(jo["ID_JOUEUR"].ToString())
                 });
             }
 

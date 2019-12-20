@@ -40,12 +40,13 @@ namespace Jeu_de_role
             Task.Run(() =>
             {
                 Task<List<PartieModel>> result = Requetes.GetParties(IdUtilisateur);
+                result.Wait();
                 this.Invoke(new MethodInvoker(delegate
                 {
                     dgvParties.Rows.Clear();
                     foreach (PartieModel p in result.Result)
                     {
-                        AddRowToDgv(p.TITRE, p.DESCRIPTION_PARTIE, p.ID_PARTIE);
+                        AddRowToDgv(p.TITRE, p.DESCRIPTION_PARTIE, p.ID_PARTIE,p.ISMJ,p.ID_JOUEUR);
                     }
 
                 }));
@@ -53,13 +54,15 @@ namespace Jeu_de_role
 
         }
 
-        private void AddRowToDgv(string titre, string description, string idPartie)
+        private void AddRowToDgv(string titre, string description, string idPartie,bool isMj,int idJoueur)
         {
 
             DataGridViewRow rowClone = (DataGridViewRow)row.Clone();
             rowClone.Cells[0].Value = titre;
             rowClone.Cells[1].Value = description;
             rowClone.Cells[2].Value = idPartie;
+            rowClone.Cells[3].Value = isMj;
+            rowClone.Cells[4].Value = idJoueur;
             dgvParties.Rows.Add(rowClone);
         }
 
@@ -139,8 +142,17 @@ namespace Jeu_de_role
             foreach (DataGridViewRow dgvr in dgvParties.SelectedRows)
             {
                 string id = dgvr.Cells["ID"].Value.ToString();
-                PartieMJ mj = new PartieMJ(id);
-                mj.Show();
+            
+                if(Convert.ToBoolean(dgvr.Cells["isMj"].Value.ToString()))
+                {
+                    PartieMJ mj = new PartieMJ(id);
+                    mj.Show();
+                }
+                else
+                {
+                    PartiePerso partiePerso = new PartiePerso(id, Convert.ToInt32(dgvr.Cells["idJoueur"].Value.ToString()));
+                    partiePerso.Show();
+                }    
                 this.Close();
             }
         }

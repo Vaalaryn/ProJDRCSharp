@@ -11,5 +11,7 @@ namespace Jeu_de_role.Models
         public string ID_PARTIE { get; set; }
         public string TITRE { get; set; }
         public string DESCRIPTION_PARTIE { get; set; }
+        public bool ISMJ { get; set; }
+        public int ID_JOUEUR { get; set; }
     }
 }
