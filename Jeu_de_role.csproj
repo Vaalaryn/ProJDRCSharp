@@ -65,6 +65,7 @@
     <Compile Include="AjoutPartie.Designer.cs">
       <DependentUpon>AjoutPartie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\getStatsPerso.cs" />
     <Compile Include="ChangeAvatar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +114,12 @@
     </Compile>
     <Compile Include="CreationPerso.Designer.cs">
       <DependentUpon>CreationPerso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PartiePerso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PartiePerso.Designer.cs">
+      <DependentUpon>PartiePerso.cs</DependentUpon>
     </Compile>
     <Compile Include="RejoindrePartie.cs">
       <SubType>Form</SubType>
@@ -197,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreationPerso.resx">
       <DependentUpon>CreationPerso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PartiePerso.resx">
+      <DependentUpon>PartiePerso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RejoindrePartie.resx">
       <DependentUpon>RejoindrePartie.cs</DependentUpon>
