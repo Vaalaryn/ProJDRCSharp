@@ -13,7 +13,7 @@ namespace Jeu_de_role
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PartiePerso());
+            Application.Run(new Connexion());
         }
     }
 }
